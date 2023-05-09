@@ -16,30 +16,14 @@
         <title>Stackbuz ERP Template</title>
     <?php } ?>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/css/bootstrap.min.css">
-    <!-- Datatable CSS -->
+    <!--build:css-->
     <link rel="stylesheet"
-        href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/css/dataTables.bootstrap4.min.css">
-    <!-- <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/select2/css/select2.min.css"> -->
-    <!-- Fontawesome CSS -->
+        href="<?=HTTP_HOST_WEBROOT?>/css/main.css?v=<?=Config::get('version');?>">
+    <!-- endbuild -->
+
+    <!--custom css start-->
     <link rel="stylesheet"
-        href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/icons/feather/feather.css">
-    <link rel="stylesheet"
-        href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet"
-        href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/fontawesome/css/all.min.css">
-    <link rel="stylesheet"
-        href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/material/materialdesignicons.css">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/css/style.css">
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/css/animate.css">
-         <!-- Rangeslider CSS -->
-         <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
-     <!-- Toatr CSS -->		
-     <link rel="stylesheet" href="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/plugins/toastr/toatr.css">
-  <style>
+        href="<?=HTTP_HOST_WEBROOT?>/css/custom.css?v=<?=Config::get('version');?>">
         @font-face {
             font-family: Nunito;
             src: url("<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/fonts/Nunito.ttf");
