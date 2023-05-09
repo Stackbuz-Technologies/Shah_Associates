@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<?=View::renderPath('dashboard/head');?>
+
+<body  onkeydown="shortCutKeyFun('<?=HTTP_HOST;?>',event);">
+    <?=View::renderPath('dashboard/preloader');?>
+    <div class="main-wrapper">
+        <?=View::renderPath('dashboard/header');?>
+        <?=View::renderPath('dashboard/navigation');?>
+        <div id="mainMiddleDiv">
+        <?=View::renderPath('dashboard/dashboard/dashboard');?>
+        </div>
+    </div>
+    <?=View::renderPath('dashboard/javascript');?>
+</body>
+
+</html>

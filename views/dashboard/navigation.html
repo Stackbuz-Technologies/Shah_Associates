@@ -1,0 +1,623 @@
+<!-- Sidebar -->
+<?php 
+//
+$staff_id = Session::get( 'staff_id' );
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// 
+// echo "link :-= ".$link.'<br>';     
+// echo "AddProduct :-= ".$AddProduct.'<br>';     
+// echo "Url_dashboard :-= ".$Url_dashboard.'<br>';     
+ //echo "AddProduct_url :-= ".$_SESSION['Product_'].'<br>';
+// echo "staff_id :-= ".$staff_id.'<br>';
+// die();
+//
+
+$AddProduct = $_SESSION['product_'];
+$dashboard = $_SESSION['dashboard_'];
+$ProductList = $_SESSION['product_productlist_'];
+$ProductMaster = $_SESSION['product_master_'];
+$ProductTransfer = $_SESSION['product_transfer_'];
+$ImportProduct = $_SESSION['product_import_'];
+$Barcode = $_SESSION['product_barcode_'];
+$AddQuotation = $_SESSION['quotation_add_'];
+$QuotationList = $_SESSION['quotation_list_'];
+$AddSale = $_SESSION['sale_'];
+$SalesList = $_SESSION['sale_salelist_'];
+$AddPurchase = $_SESSION['purchase_'];
+$PurchaseList = $_SESSION['purchase_purchaselist_'];
+$AddOrder = $_SESSION['order_add_'];
+$OrderList = $_SESSION['order_list_'];
+$AddSalesReturn = $_SESSION['return_'];
+$AddPurchaseReturn = $_SESSION['return_addpurchasereturn_'];
+$SalesReturnList = $_SESSION['return_returnsalelist_'];
+$PurchaseReturnList = $_SESSION['return_returnpurchaselist_'];
+$AddNewTransaction = $_SESSION['transaction_'];
+$TransactionList = $_SESSION['transaction_transactionlist_'];
+$AddScheme = $_SESSION['scheme_scheme_without_interest_'];
+$AllSchemeList = $_SESSION['scheme_all_'];
+$SchemeWithoutInterestList = $_SESSION['scheme_scheme_list_index_'];
+$SchemeWithInterestList = $_SESSION['scheme_scheme_with_interest_list_index_'];
+$CurrentScheme = $_SESSION['scheme_active_scheme_index_'];
+$ClosedScheme = $_SESSION['scheme_closed_scheme_index_'];
+$AddLoan = $_SESSION['loan_add_'];
+$AllLoanList = $_SESSION['loan_list_'];
+$AddExpense = $_SESSION['expense_add_'];
+$ExpenseList = $_SESSION['expense_list_'];
+$AddCustomer = $_SESSION['customer_'];
+$AddSupplier = $_SESSION['supplier_'];
+$AddStaff = $_SESSION['staff_'];
+$CustomerList = $_SESSION['customer_customerlist_'];
+$SupplierList = $_SESSION['supplier_supplierlist_'];
+$StaffList = $_SESSION['staff_stafflist_'];
+$Daybook = $_SESSION['reports_daybook_'];
+$InventoryReport = $_SESSION['reports_inventory_'];
+$PurchaseReport = $_SESSION['reports_purchase_'];
+$SaleReport = $_SESSION['reports_sale_'];
+$OrderReport = $_SESSION['reports_order_'];
+$usersummary = $_SESSION['reports_usersummary_'];
+$CustomerReport = $_SESSION['reports_customer_'];
+$SupplierReport = $_SESSION['reports_supplier_'];
+$InvoiceReport = $_SESSION['reports_invoice_'];
+$AddAccounts = $_SESSION['account_add_'];
+$AccountDetails = $_SESSION['account_index_'];
+$TrialBalance = $_SESSION['account_trialbalance_'];    
+$BalanceSheet = $_SESSION['account_balancesheet_'];
+$ProfitAndLossReport = $_SESSION['account_profitloss_'];
+$Place = $_SESSION['settings_'];
+$Rate = $_SESSION['settings_rate_'];
+$productsetting = $_SESSION['settings_product_setting_'];
+$commonsetting = $_SESSION['settings_common_setting_'];
+//
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+?>
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li id="dashboard" class="popover-list">
+                    <a href="<?=HTTP_HOST;?>/dashboard" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + D To See Dashboard"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/dashboard.svg"
+                            alt="img"><span> Dashboard</span> </a>
+                </li>
+                <?php if((( $Barcode == 'ON' || $ImportProduct == 'ON' || $ProductTransfer == 'ON' || $ProductMaster == 'ON' || $ProductList == 'ON' || $AddProduct == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu popover-list">
+                    <a href="<?=HTTP_HOST;?>/product" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + I To Add Product"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/product.svg"
+                            alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if((($AddProduct == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li><a href="<?=HTTP_HOST;?>/product" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + I To Add Product">Add Product</a>
+                        </li>
+                        <?php } ?>
+                        <?php if((($ProductList == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li><a href="<?=HTTP_HOST;?>/product/productlist" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + I To See Product List">Product List</a></li>
+                        <?php } ?>
+                        <?php if((($ProductMaster == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/product/master" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + M To See Product Master">Product Master</a></li>
+                        <?php } ?>
+                        <?php if((($ProductTransfer == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/product/transfer_product" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + M To See Product Transfer">Transfer</a></li>
+                        <?php } ?>
+                        <?php if((($ImportProduct == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/product/import" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + N To See Import Product">Import
+                                Product</a></li>
+                        <?php } ?>
+                        <?php if((($Barcode == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li><a href="<?=HTTP_HOST;?>/product/barcode" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press CTRL + B To See Product Barcode">Barcode</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + I To Add Product</div> -->
+                <?php if(((  $AddQuotation == 'ON' || $QuotationList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu ">
+                    <a href="<?=HTTP_HOST;?>/quotation" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + Q To Add Quotation"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/quotation1.svg"
+                            alt="img"><span> Quotation</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if((($AddQuotation == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/quotation" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + Q To Add Quotation">Add
+                                Quotation</a></li>
+                        <?php } ?>
+                        <?php if((($QuotationList == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/quotation/quotationlist" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + Shift + Q To See List">Quotation
+                                List</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + Q To Add Quotation</div> -->
+                <?php if((( $AddSale == 'ON' || $SalesList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' ) ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/sale" class="example-popover" data-bs-trigger="hover" data-container="body"
+                        data-bs-toggle="popover" data-bs-placement="right" title="" data-offset="-20px -20px"
+                        data-bs-content="Press ALT + S To Sale Product"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/sales1.svg"
+                            alt="img"><span> Sale</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if((($AddSale == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/sale" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + S To Sale Product">Add Sale</a>
+                        </li>
+                        <?php } ?>
+                        <?php if((($SalesList == 'ON' && $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/sale/salelist" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + Shift + S To See Sale List">Sales
+                                List</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + S To Sale Product</div> -->
+                <?php if((( $AddPurchase == 'ON' || $PurchaseList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/purchase" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + P To Purchase"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/purchase1.svg"
+                            alt="img"><span> Purchase</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddPurchase == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/purchase" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + P To Purchase">Add Purchase</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $PurchaseList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/purchase/purchaselist" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + P To See Purchase List">Purchase List</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + P To Purchase</div> -->
+                <?php if((( $AddOrder == 'ON' || $OrderList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/order" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + O To Add Order"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/order.svg"
+                            alt="img"><span> Order</span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <?php if(( $AddOrder == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/order" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + O To Add Order">Add Order</a>
+                        </li>
+                        <?php } ?>
+                        <?php if((  $OrderList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )) { ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/order/orderlist" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + O To See Order List">Order
+                                List</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + O To Add Order</div> -->
+                <?php if((( $AddSalesReturn == 'ON' || $AddPurchaseReturn == 'ON' || $SalesReturnList == 'ON'  || $PurchaseReturnList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/return" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT R To Add Return"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/return1.svg"
+                            alt="img"><span>Return</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddSalesReturn == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/return" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT R To Add Return">Add Sales Return
+                            </a></li>
+                        <?php } ?>
+                        <?php if((  $AddPurchaseReturn == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/return/addpurchasereturn" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="bottom" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT Y To Add Return">Add Purchase
+                                Return </a></li>
+                        <?php } ?>
+                        <?php if((  $SalesReturnList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/return/returnsalelist" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="bottom" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + R To See Sale Return List"> Sales Return List</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $PurchaseReturnList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/return/returnpurchaselist" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + Y To See Purchase Return List">Purchase Return
+                                List</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + R To Add Return</div> -->
+                <?php if((( $AddNewTransaction == 'ON' || $TransactionList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/transaction" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + T To Add New Transaction"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/transcation.svg"
+                            alt="img"><span>Transaction</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddNewTransaction == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/transaction" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + T To Add New Transaction">Add New
+                                Transaction</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $TransactionList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/transaction/transactionlist" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + J To See Transaction List">Transaction List</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + T To Add Credit Transaction</div> -->
+                <?php if((( $AddScheme == 'ON' || $AllSchemeList == 'ON' || $SchemeWithoutInterestList == 'ON'  || $SchemeWithInterestList == 'ON' || $CurrentScheme == 'ON' || $ClosedScheme == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/scheme" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + K To Add Schemet"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/scheme.svg"
+                            alt="img"><span> Scheme </span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <?php if((  $AddScheme == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/scheme/scheme_without_interest" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + K To Add Scheme">Add Scheme
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $AllSchemeList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/scheme/schemelist/all" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + K To See All Scheme">All Scheme List
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <!-- <?php if(( $SchemeWithoutInterestList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/scheme/scheme_list/index" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + K To See All Scheme">Scheme Without Interest
+                                List</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $SchemeWithInterestList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/scheme/scheme_with_interest_list/index" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + K To See All Scheme">Scheme
+                                With Interest List</a>
+                        </li>
+                        <?php } ?> -->
+                        <?php if(( $CurrentScheme == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/scheme/active_scheme/index" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press  CTRL + K To See All Scheme">Active
+                                Scheme</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $ClosedScheme == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/scheme/closed_scheme/index" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px" data-bs-content="Press CTRL + Shift + K To See All Scheme
+                                ">Closed
+                                Scheme
+                            </a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + K  To Add Scheme</div> -->
+                <?php if((( $AddLoan == 'ON' || $AllLoanList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/loan" class="example-popover" data-bs-trigger="hover" data-container="body"
+                        data-bs-toggle="popover" data-bs-placement="right" title="" data-offset="-20px -20px"
+                        data-bs-content="Press ALT + L To Add Loan"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/loan.svg"
+                            alt="img"><span>Loan </span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddLoan == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/loan" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + L To Add Loan">Add Loan</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $AllLoanList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/loan/loanlist" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + SHIFT + L To Add Loan">All Loan
+                                List</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- <div class="hide">Press ALT + L To Add Loan</div> -->
+                <?php if((( $AddExpense == 'ON' || $ExpenseList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/expense" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + E To Add Expense"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/expense1.svg"
+                            alt="img"><span> Expense</span> <span class="menu-arrow"></span>
+                    </a>
+                    <ul>
+                        <?php if(( $AddExpense == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/expense" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + E To Add Expense">Add Expense
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $ExpenseList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/expense/expenselist" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + SHIFT + E To See Expense List">Expense List
+                            </a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- // -->
+                <?php if((( $AddCustomer == 'ON' || $AddSupplier == 'ON' || $AddStaff == 'ON'  || $CustomerList == 'ON' || $SupplierList == 'ON' || $StaffList == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a id="customer" href="<?=HTTP_HOST;?>/user" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + C To See Customer"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/users1.svg"
+                            alt="img"><span> Users</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddCustomer == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/customer" id="addcustomernav" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + C To See Customer">Add Customer</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $AddSupplier == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/supplier" id="addsuppliernav" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + W To See Supplier">Add Supplier</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $AddStaff == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/staff" id="addstaffnav" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + U To See Staff">Add
+                                Staff</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $CustomerList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/customer/customerlist" id="customerliastnav"
+                                class="example-popover" data-bs-trigger="hover" data-container="body"
+                                data-bs-toggle="popover" data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + Shift + C To See Customer List">Customer List</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $SupplierList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/supplier/supplierlist" id="supplierlistnav" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT SHIFT W To See Supplier List">Supplier List</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $StaffList == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/staff/stafflist" id="stafflistnav" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + SHIFT + U To See Staff List">Staff List</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- // -->
+                <?php if((( $Daybook == 'ON' || $InventoryReport == 'ON' || $PurchaseReport == 'ON' || $SaleReport == 'ON'  || $CustomerReport == 'ON' || $SupplierReport == 'ON' || $InvoiceReport == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/reports/daybook" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + F1 To See Inventory Report"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/time.svg"
+                            alt="img"><span> Reports</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $Daybook == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/reports/daybook" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + F1 To See Sale Report">Daybook</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $InventoryReport == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/reports/inventoryreport" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + F2 To See Inventory Report">Inventory Report</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $SaleReport == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/reports/salereport" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + F3 To See Sale Report">Sale
+                                Report</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $PurchaseReport == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/reports/purchasereport" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px"
+                                data-bs-content="Press ALT + F6 To See Purchase Report">Purchase Report</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $OrderReport == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/reports/orderreport" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + F7 To See Sale Report">Order
+                                Report</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $usersummary == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li>
+                            <a href="<?=HTTP_HOST;?>/reports/usersummary" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + F8 To See Invoice Report">
+                                User Summary Report</a>
+                        </li>
+                        <?php } ?>
+
+                    </ul>
+                </li>
+                <?php } ?>
+
+                <!-- // -->
+
+                <?php if((( $AddAccounts == 'ON' || $AccountDetails == 'ON' || $TrialBalance == 'ON' || $BalanceSheet == 'ON' || $ProfitAndLossReport == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu">
+                    <a href="<?=HTTP_HOST;?>/account" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + A To See Account"> <img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/accounting.svg"
+                            alt="img"><span> Accounts </span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $AddAccounts == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/account/add" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + A To See Account">Add Account
+                            </a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $AccountDetails == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/account" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + SHIFT + A To See Account">Account
+                                Details</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $TrialBalance == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/account/trialbalance" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + 7 To See Account">Trial
+                                Balance</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $BalanceSheet == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/account/balancesheet" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press ALT + 8 To See Balance Sheet">Balance Sheet</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $ProfitAndLossReport == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/account/profitloss" class="example-popover"
+                                data-bs-trigger="hover" data-container="body" data-bs-toggle="popover"
+                                data-bs-placement="right" title="" data-offset="-20px -20px"
+                                data-bs-content="Press  ALT + 9  To See Account">Profit
+                                and Loss Report</a>
+                        </li>
+                        <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+                <!-- // -->
+                <?php if((( $Place == 'ON' || $Rate == 'ON' ) && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )  ){ ?>
+                <li class="submenu ">
+                    <a id='setting' href="<?=HTTP_HOST;?>/settings" class="example-popover" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + X To See Account"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/settings.svg"
+                            alt="img"><span> Settings</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <?php if(( $Place == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/settings" id="placenav" class="example-popover" data-bs-trigger="hover"
+                            data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                            data-offset="-20px -20px" data-bs-content="Press ALT + X To See Account">Places Setting</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $Rate == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                        <li><a href="<?=HTTP_HOST;?>/settings/rate" id="placenav" class="example-popover" data-bs-trigger="hover"
+                            data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                            data-offset="-20px -20px" data-bs-content="Press ALT + 1 To See Account">Rate Setting</a>
+                        </li>
+                        <?php } ?>
+                        <?php if(( $productsetting == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                            <li><a href="<?=HTTP_HOST;?>/settings/product_setting" id="placenav" class="example-popover" data-bs-trigger="hover"
+                                data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                data-offset="-20px -20px" data-bs-content="Press ALT + 2 To See Account">Product Setting</a>
+                            </li>
+                            <?php } ?>
+                            <?php if(( $commonsetting == 'ON' && ( $staff_id != '' && $staff_id != NULL )) || ($staff_id == '' )){ ?>
+                                <li><a href="<?=HTTP_HOST;?>/settings/common_setting" id="placenav" class="example-popover" data-bs-trigger="hover"
+                                    data-container="body" data-bs-toggle="popover" data-bs-placement="right" title=""
+                                    data-offset="-20px -20px" data-bs-content="Press ALT + 3 To See Account">Common Setting</a>
+                                </li>
+                                <?php } ?>
+                    </ul>
+                </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /Sidebar -->

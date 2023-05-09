@@ -1,0 +1,63 @@
+
+<?php
+// Code for Webcam Open 
+
+$closingDiv = $_REQUEST['closingDiv'];
+$counter = $_REQUEST['count'];
+$inputCaptureId = $_REQUEST['inputCaptureId'];  
+?>
+<div  style="width:300px;height:221px;position: absolute;border: #FF9F43 2px solid;background-color: #232D50;z-index: 1;margin-left: -169px;">
+    <table width="100%" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td colspan="2" class="paddingTop2" valign="middle">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td valign="top" >
+                                    <div style="width:300px;height:auto;">
+                                        <div id="image-upload-custs<?=$counter;?>" class="d-flex justify-content-center"></div>
+                                        <video id="webCamvideo<?=$counter;?>" autoplay
+                                            style="width: 300px; height: 187px;margin-top: 0px !important;"></video>
+                                    </div>
+                                </td>
+                                <td class="align-top" >
+                                    <a style="cursor: pointer;"
+                                        onclick="closeWebcamImageDiv('<?=$closingDiv;?>');">
+                                        <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/close-circle.svg"
+                                            style="z-index: 1;">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="paddingTop2 padBott2" >
+                    <div style="border-top:1px solid #AF7817;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td width="50%" align="center">
+                    <button type="button" onclick="captureStockImage('<?=$counter;?>','<?=$inputCaptureId;?>');" class="btn btn-primary"
+                        style="height:25px;width:120px;font-weight:bold;font-size:11px;margin-top:4px;border-radius: 5px !important;text-align:center;color:#000080;background-color: #89B2ED;">
+                        <span>CAPTURE IMAGE</span>
+                    </button>
+                </td>
+                <td width="50%" align="center">
+                    <button type="button" id="TakeWebcamImage"
+                        onclick="closeWebcamImageDiv('<?=$closingDiv;?>');" class="btn btn-primary"
+                        style="height:25px;width:120px;font-weight:bold;font-size:11px;margin-top:4px;border-radius: 5px !important;text-align:center;color:#0C3C03;background-color: #6EE36E;">
+                        <span>SAVE & CLOSE</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<canvas id="canvas<?=$counter;?>" width="300" height="220" style="display: none;"></canvas>
+
+<script>
+   openStockCammera('<?=$counter;?>');
+</script>

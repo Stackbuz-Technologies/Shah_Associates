@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<?=View::renderPath('dashboard/head');?>
+
+<body class="error-page" onkeydown="shortCutKeyFun(event);">
+    <?=View::renderPath('dashboard/preloader');?>
+    <div class="main-wrapper">
+        <div class="error-box max-width-100">
+            <h2>Comming Soon</h2>
+            <p class="h4 font-weight-normal">In the meantime, Signup for our monthly newsletter to stay up to date. </p>
+            <a href="<?=HTTP_HOST;?>" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+    <?=View::renderPath('dashboard/javascript');?>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<?php 
+$staff_id = Session::get( 'staff_id' ); 
+?>
+<div class="header">
+    <div>
+        <div class="progress progress-md custom-progress">
+            <div class="progress-bar progress-bar-striped" id="progressbarloading" role="progressbar" style="width: 0%"
+                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+    <!-- Logo -->
+    <div class="header-left active">
+        <a href="<?=HTTP_HOST;?>/dashboard" class="logo logo-normal">
+            <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/logo.png" alt="logo">
+        </a>
+        <a href="<?=HTTP_HOST;?>/dashboard" class="logo logo-white">
+            <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/logo-white.png" alt="logo">
+        </a>
+        <a href="<?=HTTP_HOST;?>/dashboard" class="logo-small">
+            <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/logo-small.png" alt="logo">
+        </a>
+        <a id="toggle_btn" href="javascript:void(0);">
+        </a>
+    </div>
+    <!-- /Logo -->
+
+    <a id="mobile_btn" class="mobile_btn" href="#sidebar">
+        <span class="bar-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </a>
+
+    <!-- Header Menu -->
+    <ul class="nav user-menu">
+
+        <!-- Search -->
+        <li class="nav-item">
+            <div class="top-nav-search">
+
+                <a href="javascript:void(0);" class="responsive-search">
+                    <i class="fa fa-search"></i>
+                </a>
+                <form onsubmit="return false">
+                    <div class="searchinputs">
+                        <input type="text" placeholder="Search Product And Customer ..." id="searchForResult"
+                        onkeyup="
+                        if(event.keyCode == 13){
+                            changeDiv('<?=HTTP_HOST;?>','dashboard','searchall',{searching:document.getElementById('searchForResult').value},'mainMiddleDiv');
+                        }
+                        "
+                        title="
+                        (Prifix 'P') Enter Product Code Like (PSL1 or PC1)
+                        (Prifix 'S') Enter Supplier Id Like (S01 or S10)
+                        (Prifix 'C') Enter Customer Id Like (C121 or C2)
+                        (Prifix 'U') Enter Staff Id Like (U121 or U2)
+                        ">
+                        <div class="search-addon">
+                            <span><img
+                                    src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/closes.svg"
+                                    alt="img"></span>
+                        </div>
+                    </div>
+                    <a class="btn" id="searchdiv"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/search.svg"
+                            alt="img"></a>
+                </form>
+            </div>
+        </li>
+        <!-- Notifications -->
+
+        <?php    if((( $staff_id == '' && $staff_id == NULL ))) { ?> 
+        <li class="nav-item dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/notification-bing.svg"
+                    alt="img"> <span class="badge rounded-pill">4</span>
+            </a>
+            <div class="dropdown-menu notifications">
+                <div class="topnav-dropdown-header">
+                    <span class="notification-title">Notifications</span>
+                    <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                </div>
+                <div class="noti-content">
+                    <ul class="notification-list">
+                        <li class="notification-message">
+                            <a href="activities.html">
+                                <div class="media d-flex">
+                                    <span class="avatar flex-shrink-0">
+                                        <img alt=""
+                                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/profiles/avatar-02.jpg">
+                                    </span>
+                                    <div class="media-body flex-grow-1">
+                                        <p class="noti-details"><span class="noti-title">John Doe</span> added new task
+                                            <span class="noti-title">Patient appointment booking</span>
+                                        </p>
+                                        <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="notification-message">
+                            <a href="activities.html">
+                                <div class="media d-flex">
+                                    <span class="avatar flex-shrink-0">
+                                        <img alt=""
+                                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/profiles/avatar-03.jpg">
+                                    </span>
+                                    <div class="media-body flex-grow-1">
+                                        <p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed
+                                            the task name <span class="noti-title">Appointment booking with payment
+                                                gateway</span></p>
+                                        <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="notification-message">
+                            <a href="activities.html">
+                                <div class="media d-flex">
+                                    <span class="avatar flex-shrink-0">
+                                        <img alt=""
+                                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/profiles/avatar-06.jpg">
+                                    </span>
+                                    <div class="media-body flex-grow-1">
+                                        <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span
+                                                class="noti-title">Domenic Houston</span> and <span
+                                                class="noti-title">Claire Mapes</span> to project <span
+                                                class="noti-title">Doctor available module</span></p>
+                                        <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="notification-message">
+                            <a href="activities.html">
+                                <div class="media d-flex">
+                                    <span class="avatar flex-shrink-0">
+                                        <img alt=""
+                                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/profiles/avatar-17.jpg">
+                                    </span>
+                                    <div class="media-body flex-grow-1">
+                                        <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed
+                                            task <span class="noti-title">Patient and Doctor video conferencing</span>
+                                        </p>
+                                        <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="notification-message">
+                            <a href="activities.html">
+                                <div class="media d-flex">
+                                    <span class="avatar flex-shrink-0">
+                                        <img alt=""
+                                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/profiles/avatar-13.jpg">
+                                    </span>
+                                    <div class="media-body flex-grow-1">
+                                        <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added
+                                            new task <span class="noti-title">Private chat module</span></p>
+                                        <p class="noti-time"><span class="notification-time">2 days ago</span></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="topnav-dropdown-footer">
+                    <a href="activities.html">View all Notifications</a>
+                </div>
+            </div>
+        </li>
+        <?php } ?>
+
+
+        <!-- /Notifications -->
+        <!-- night mode -->
+        <li class="nav-item dropdown d-flex justify-content-between align-items-center px-2">
+            <div class="status-toggle d-flex justify-content-between align-items-center" id="dark-mode-toggle">
+                <span class="light-mode cursor-pointer" id="sun-light"> <img
+                        src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/sun-icon.svg"
+                        class="me-2" alt=""></span>
+                <span class="dark-mode active" id="moon-light"><i class="far fa-moon me-2 moon-dark"></i></span>
+            </div>
+        </li>
+        <li class="nav-item dropdown d-flex justify-content-between align-items-center px-2" title="Press CTRL + H To See Shortcut-Key">
+       <div class="example-popover" data-bs-trigger="hover"
+       data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title=""
+       data-offset="-20px -20px" data-bs-content="Press ALT + H To See Shortcut">   <a href="<?=HTTP_HOST;?>/help/shortcutkey" class="btn btn-added">
+                    <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/shortcut-icon.svg"
+                        class="me-2" alt="">
+                </a>
+            </div>
+        </li>
+        
+        <!-- night mode -->
+        <!-- Start Code for company code -->
+        <li class="nav-item dropdown has-arrow main-drop example-popover" data-bs-trigger="hover"
+        data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title=""
+        data-offset="-20px -20px" data-bs-content="Press ALT + F To Add Company">
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link userset px-2" data-bs-toggle="dropdown">
+                <div class="status-toggle d-flex justify-content-between align-items-center">
+                    <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/company.svg" alt="img"
+                        width="24px">
+                </div>
+            </a>
+            <!-- <i class="mdi mdi-bank company-dark" data-bs-toggle="tooltip" title="mdi-bank"></i> -->
+            <div class="dropdown-menu menu-drop-user" >
+                <div class="profilename">
+                    <div class="profileset">
+                        <span class="user-img" >
+                            <img src="<?=HTTP_HOST;?>/image/show/index/<?=Session::get('set_default_company_img_id');?>/company_logo/office_building.png"
+                                alt="company image" ></span>
+                        <div class="profilesets d-flex justify-content-center align-items-center">
+                            <h6>
+                                <?php
+                                if(Session::get('set_default_company_code') !=''){
+                                    echo Session::get('set_default_company_code');
+                                }else{
+                                    echo 'Unregistered';
+                                }
+                                ?>
+                            </h6>
+                        </div>
+                    </div>
+                    <hr class="m-0">
+                    <a class="dropdown-item" href="<?=HTTP_HOST;?>/company"><i class="fe fe-plus me-2"></i>Add
+                        Company</a>
+                    <hr class="m-0">
+
+                    <a class="dropdown-item pb-0" href="<?=HTTP_HOST;?>/company/details">
+                        <i class="fa fa-th-list me-2 "></i> Company List</a>
+                </div>
+            </div>
+        </li>
+        <!-- End Code for company code -->
+              <?php
+                    if(Session::get('owner_image_id') !='' ){
+                       $image_id = Session::get('owner_image_id');
+                       $folder_name = 'owner_image';
+                       $user_role = 'Owner';
+                    }else if(Session::get('staff_image_id') !='' ){
+                        $image_id = Session::get('staff_image_id');
+                        $folder_name = 'user_image';
+                        $user_role = Session::get('user_role');
+                    } else {
+                        $image_id = '';
+                        $folder_name = 'owner_image';
+                        $user_role = '';
+                    }
+               ?>
+        <li class="nav-item dropdown has-arrow main-drop example-popover" data-bs-trigger="hover"
+        data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title=""
+        data-offset="-20px -20px" data-bs-content="Press ALT + Z To See Profile" >
+            <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                <span class="user-img">
+                    <img onload="javascript:if(navigator.onLine) {
+                    document.getElementById('online').classList.add('status');
+                    document.getElementById('online-dropdown').classList.add('status');
+                 }" src="<?=HTTP_HOST;?>/image/show/index/<?=$image_id;?>/<?=$folder_name;?>/user_male.png"
+                        g" alt="avtar">
+                    <span id="online" class=""></span></span>
+            </a>
+            <div class="dropdown-menu menu-drop-user" style="width:200px;">
+                <div class="profilename">
+                    <div class="profileset">
+                        <span class="user-img">
+                            <img src="<?=HTTP_HOST;?>/image/show/index/<?=$image_id;?>/<?=$folder_name;?>/user_male.png"
+                                alt="">
+                            <span id="online-dropdown" class=""></span>
+                        </span>
+                        <div class="profilesets">
+                            <h6>
+                                <?php
+                                if(Session::get('owner_name') !='' ){
+                                    echo substr(Session::get('owner_name'),0,17);
+                                }else if(Session::get('staff_name') !='' ){
+                                     echo substr(Session::get('staff_name'),0,17);
+                                } else {
+                                    echo 'User';
+                                }
+                                ?>
+                            </h6>
+                            <h5><?=$user_role;?></h5>
+                        </div>
+                    </div>
+                    <?php if((( $staff_id == '' && $staff_id == NULL ))) { ?> 
+                    <hr class="m-0">
+                    <a class="dropdown-item example-popover" href="<?=HTTP_HOST;?>/profile" data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="left" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + Z To View Profile"> <i class="me-2" data-feather="user"></i> My
+                        Profile</a>
+                        <?php } ?>
+                    <!-- <a class="dropdown-item" href="generalsettings.html"><i class="me-2"
+                            data-feather="settings"></i>Settings</a> -->
+                    <hr class="m-0">
+                    <a class="dropdown-item logout pb-0 example-popover" href="<?=HTTP_HOST;?>/login/owner_logout"  data-bs-trigger="hover"
+                        data-container="body" data-bs-toggle="popover" data-bs-placement="left" title=""
+                        data-offset="-20px -20px" data-bs-content="Press ALT + 0 To  Logout"><img
+                            src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/log-out.svg"
+                            class="me-2" alt="img">Logout</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!-- /Header Menu -->
+
+    <!-- Mobile Menu -->
+    <div class="dropdown mobile-user-menu">
+        <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+            aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="profile.html">My Profile</a>
+            <a class="dropdown-item" href="generalsettings.html">Settings</a>
+            <a class="dropdown-item" href="<?=HTTP_HOST;?>/login/owner_logout">Logout</a>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+</div>
+<!-- Header -->

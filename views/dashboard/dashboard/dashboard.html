@@ -1,0 +1,366 @@
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!------------------------------------------Start Code  Display Popup on login to Set Default firm------------------------------------->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<?php 
+if(sizeof($data['common_setting']) > 0){
+  for($settinglist = 0;$settinglist < sizeof($data['common_setting']);$settinglist++){
+    if($data['common_setting'][$settinglist]['setting_name']== 'default company setting' && $data['common_setting'][$settinglist]['setting_value'] == 'on'){
+      $setting_value = $data['common_setting'][$settinglist]['setting_value'];
+    }
+  }} 
+  if(($setting_value == 'on') && Session::get('showPopup')== 'YES'){?>
+<div class="modal fade" id="myprograming" tabindex="-1" aria-labelledby="myprograming" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="myprograming">Select Default Company</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 inquiry-form">
+                            <form action="<?=HTTP_HOST;?>/company/set_company_default" method="post"
+                                id="setCompanyValue">
+                                <input type="hidden" name="indicator" id="indicator" value="company_popup">
+                                <div class="row">
+                                    <?php
+                                        $session_comapny_id = Session::get('company_id');               
+                                        if(sizeof($data['company_list']) > 0){
+                                            for($companylist = 0;$companylist < sizeof($data['company_list']);$companylist++){
+                                     ?>
+                                    <div class="col-lg-12 ">
+                                        <div class="card">
+                                            <div class="card-header d-flex justify-content-between"
+                                                id="company_default">
+                                                <div class="d-flex">
+                                                    <a class="me-2 product-img"
+                                                        onclick="changeDiv('<?=HTTP_HOST;?>','company','update_company',{company_id:'<?=$data[company_list][$companylist][company_id];?>'},'mainMiddleDiv');">
+                                                        <img src="<?=HTTP_HOST;?>/image/show/index/<?=$data['company_list'][$companylist]['company_logo_id'];?>/company_logo/office_building.png
+                                                         " alt="product" width="30px">
+                                                    </a>
+                                                </div>
+                                                <div class=" color-comapny" style="text-align: left;">
+                                                    <?=$data['company_list'][$companylist]['company_name'];?> [
+                                                    <?=$data['company_list'][$companylist]['company_code'];?>]
+                                                </div>
+                                                <div class="round">
+                                                    <input type="radio"
+                                                        id="checkbox<?=$data[company_list][$companylist][company_id];?>"
+                                                        name="set_default_company_id"
+                                                        value="<?=$data[company_list][$companylist][company_id];?>" />
+                                                    <label
+                                                        for="checkbox<?=$data[company_list][$companylist][company_id];?>"></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <?php } }else{ ?>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/office_building.png"
+                                            alt="comapny not found" width="200px">
+                                    </div>
+                                    <div class="w-100 d-flex justify-content-center align-items-center flex-column">
+                                        <div
+                                            class="font-size-21 w-100 d-flex justify-content-center align-items-center flex-column my-4">
+                                            Company Not Avaliable !<br>
+                                            <a class="btn btn-primary" href="<?=HTTP_HOST;?>/company">Create Company</a>
+                                        </div>
+                                    </div>
+                                    <?php } ?>
+
+                                </div>
+                                <div class="row transaction-row-width">
+                                    <div class="col-lg-12 text-center">
+
+                                        <button type="submit" class="btn btn-submit me-2" id="submit_form">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<?php }?>
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<!------------------------------------------End Code  Display Popup on login to Set Default firm------------------------------------->
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+<div class="page-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 col-12">
+                <div class="dash-widget">
+                    <div class="dash-widgetimg">
+                        <span><img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/dash1.svg"
+                                alt="img"></span>
+                    </div>
+                    <div class="dash-widgetcontent">
+                        <h5><span class="counters"
+                                data-count="<?php echo $data[ 'dashboard_data' ]['total_sales_due'];?>">
+                                <?php echo $data[ 'dashboard_data' ]['total_sales_due'];?>
+                            </span></h5>
+                        <h6>Total Sales Due</h6>
+                    </div>
+                </div>
+            </div>
+
+            <?php 
+          $total_gold=$data[ 'dashboard_data' ]['metal_data']['total_gold'];
+          $total_silver=$data[ 'dashboard_data' ]['metal_data']['total_silver'];
+          $total_platinum=$data[ 'dashboard_data' ]['metal_data']['total_platinum'];
+          $total_stone=$data[ 'dashboard_data' ]['metal_data']['total_stone'];
+          $total_other=$data[ 'dashboard_data' ]['metal_data']['total_other'];
+            if($total_gold==''){
+                $total_gold=0;
+            }
+            if($total_silver==''){
+            $total_silver=0;
+            }
+            if($total_platinum==''){
+            $total_platinum=0;
+            }
+            if($total_stone==''){
+            $total_stone=0;
+            }
+            if($total_other==''){
+            $total_other=0;
+            }
+            for($dashdata = 0;$dashdata < sizeof(  $data['dashboard_data']['sales_data']);$dashdata++) {                   
+            $saledata[$dashdata]=$data[ 'dashboard_data' ]['sales_data'][$dashdata]['month'];
+            $salesAmount[$dashdata]=$data[ 'dashboard_data' ]['sales_data'][$dashdata]['amount'];
+            }                                   
+            if($salesAmount == '' || empty($salesAmount) ==''){       
+            $salesAmount=array(0,0,0,0,0,0);  
+            $amount = implode(',', $salesAmount);  
+            } else {                                  
+            $amount = implode(',', $salesAmount);
+            }  
+            $saledta = implode(',', $saledata);
+            ?>
+            <input type="hidden" name="salesdata" id="salesdata" value="<?php echo $saledta;?>">
+            <input type="hidden" name="salesAmount" id="salesAmount" value="<?php echo $amount;?>">
+            <input type="hidden" name="total_gold" id="total_gold" value="<?php  echo $total_gold;?>">
+            <input type="hidden" name="total_silver" id="total_silver" value="<?php echo $total_silver;?>">
+            <input type="hidden" name="total_platinum" id="total_platinum" value="<?php echo $total_platinum;?>">
+            <input type="hidden" name="total_stone" id="total_stone" value="<?php echo $total_stone;?>">
+            <input type="hidden" name="total_other" id="total_other" value="<?php echo $total_other;?>">
+
+            <div class="col-lg-3 col-sm-6 col-12">
+                <div class="dash-widget dash1">
+                    <div class="dash-widgetimg">
+                        <span><img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/dash2.svg"
+                                alt="img"></span>
+                    </div>
+                    <div class="dash-widgetcontent">
+                        <h5><span class="counters"
+                                data-count="<?php echo $data[ 'dashboard_data' ]['total_purchase_due'];?>">
+                                <?php echo $data[ 'dashboard_data' ]['total_purchase_due'];?>
+                            </span></h5>
+                        <h6>Total Purchase Due</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12">
+                <div class="dash-widget dash2">
+                    <div class="dash-widgetimg">
+                        <span><img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/dash3.svg"
+                                alt="img"></span>
+                    </div>
+                    <div class="dash-widgetcontent">
+                        <h5><span class="counters"
+                                data-count="<?php echo $data[ 'dashboard_data' ]['total_sale_amount'];?>">
+                                <?php echo $data[ 'dashboard_data' ]['total_sale_amount'];?>
+                            </span></h5>
+                        <h6>Total Sale Amount</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12">
+                <div class="dash-widget dash3">
+                    <div class="dash-widgetimg">
+                        <span><img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/dash4.svg"
+                                alt="img"></span>
+                    </div>
+                    <div class="dash-widgetcontent">
+                        <h5><span class="counters"
+                                data-count="<?php echo $data[ 'dashboard_data' ]['total_purchase_amount'];?>">
+                                <?php echo $data[ 'dashboard_data' ]['total_purchase_amount'];?>
+                            </span></h5>
+                        <h6>Total Purchase Amount</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12 d-flex">
+                <div class="dash-count">
+                    <div class="dash-counts">
+                        <h4>
+                            <?php 
+                            if($data[ 'dashboard_data' ]['total_customer_count']=='')
+                            {echo '0';
+                        }else{
+                            echo $data[ 'dashboard_data' ]['total_customer_count'];
+                            }?>
+                        </h4>
+                        <h5>Customers</h5>
+                    </div>
+                    <div class="dash-imgs">
+                        <i data-feather="user"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12 d-flex">
+                <div class="dash-count das1">
+                    <div class="dash-counts">
+                        <h4>
+                            <?php 
+                            if($data[ 'dashboard_data' ]['total_order_count']=='')
+                            {echo '0';
+                        }else{
+                            echo $data[ 'dashboard_data' ]['total_order_count'];
+                            }?>
+                        </h4>
+                        <h5>Order</h5>
+                    </div>
+                    <div class="dash-imgs">
+                        <i data-feather="file-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12 d-flex">
+                <div class="dash-count das2">
+                    <div class="dash-counts">
+                        <h4>
+                            <?php 
+                            if($data[ 'dashboard_data' ]['total_sale_count']=='')
+                            {echo '0';
+                        }else{
+                            echo $data[ 'dashboard_data' ]['total_sale_count'];
+                            }?>
+                        </h4>
+                        <h5>Sales Invoice</h5>
+                    </div>
+                    <div class="dash-imgs">
+                        <i data-feather="file-text"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 col-12 d-flex">
+                <div class="dash-count das3">
+                    <div class="dash-counts">
+                        <h4>
+                            <?php 
+                            if($data[ 'dashboard_data' ]['total_purchase_count']=='')
+                            {echo '0';
+                        }else{
+                            echo $data[ 'dashboard_data' ]['total_purchase_count'];
+                            }?>
+                        </h4>
+                        <h5>Purchase Invoice</h5>
+                    </div>
+                    <div class="dash-imgs">
+                        <i data-feather="file"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+
+        <div class="row">
+            <div class="col-lg-7 col-sm-12 col-12 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-header pb-0 d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Previous Sales</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="s-line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <?php 
+                   if(($total_gold=='') && ($total_silver=='') && ($total_platinum=='') && ($total_stone=='')&& ($total_other=='')){
+                        ?>
+                    <div class="card-header pb-0">
+                        <div class="card-title">Metal Available</div>
+                        <div class="text-center">
+                            <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/no_record.png"
+                                alt="Record Not Found" width="30%" style="margin-top: 15%;">
+
+                            <h3 class="font-weight-600">
+                                Record Not Found !
+                            </h3>
+                            <div class="col-lg-12" style="margin-top: 20px;margin-bottom:80px;">
+                                <button class="btn btn-submit me-2">
+                                    <a href="<?=HTTP_HOST;?>/product" class="btn btn-added ms-2"><i
+                                            class="fa fa-plus"></i> &nbsp; Add Product</a>
+                                </button>
+                            </div>
+                        </div>
+                        <?php }else {?>
+
+                        <div class="card-header pb-0">
+                            <div class="card-title">Metal Available</div>
+                        </div>
+                        <div class="card-body chart-set">
+                            <div class="chart-set" id="donut-chart"></div>
+                        </div>
+                        <?php }  ?>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-0">
+                <div class="card-body">
+                    <h4 class="card-title">Low Unit Products</h4>
+                    <div class="table-responsive dataview">
+                        <table class="table datatable ">
+                            <thead>
+                                <tr>
+                                    <th>SNo</th>
+                                    <th>Product Code</th>
+                                    <th>Category</th>
+                                    <th>Product Name</th>
+                                    <th>Gs Wt.</th>
+                                    <th>Nt Wt.</th>
+                                    <th>Fn Wt.</th>
+                                    <th>Type</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="javascript:void(0);">IT0001</a></td>
+                                    <td class="productimgname">
+                                        <a class="product-img"
+                                            href="<?=HTTP_HOST;?>/product/productlist/product_dashboard/P=<?=$product_in_id?>">
+                                            <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/product/product2.jpg"
+                                                alt="product">
+                                        </a>
+                                        <a href="productlist.html">Gold</a>
+                                    </td>
+                                    <td>Ring</td>
+                                    <td>10</td>
+                                    <td>9.2</td>
+                                    <td>9.2</td>
+                                    <td>GM</td>
+                                    <td>10</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

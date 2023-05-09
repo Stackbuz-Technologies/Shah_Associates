@@ -1,0 +1,149 @@
+<?php
+
+/*
+* **************************************************************************************
+* @tutorial: Image Display
+* **************************************************************************************
+*
+* Created on 14-Jan-2023 6:00:00 am
+*
+* @FileName: image.php
+* @Author: Stackbuz Technologies Team
+* @AuthorEmailId:  info@stackbuz.com
+* @ProjectName:
+* @version 1.0.0
+* @Copyright ( c ) 2022 www.stackbuz.com
+* @All rights reserved
+*  Copyright 2022 Stackbuz Technologies
+*
+* @ModificaionHistory
+*  MODIFICATION DATE:
+*  AUTHOR:
+*  REASON:
+*
+*/
+?>
+<?php
+/*
+*
+parameter 0 is image id,
+parameter 1 is folder name where image contain,
+parameter 2 is default image name only not path,
+*
+*/
+$imageId = $data[ 0 ];
+$image_folder = $data[ 1 ];
+$defaultFileName1 = $data[ 2 ];
+// setting default image
+if ( $defaultFileName1 != '' ) {
+     $defaultFileName1 = HTTP_HOST_WEBROOT.DS.Config::get('default_theme').'/img/'.$defaultFileName1;
+}
+//
+    $owner_id = Session::get('owner_id');
+//
+if ( $imageId != '' ) {
+    $images_erp = 'images_'. SOFTWARE_NAME;
+    if ( GB_SYSTEM_ONOFF == 'ON' ) {
+        //
+        $dirPath = realpath( __DIR__ . '/../../../..' );
+        $dirName = $dirPath . '/images_stackbuz/' . $owner_id;
+        //
+        if ( $image_folder != '' ) {
+            $dirName = $dirName . '/'.$image_folder;
+        } else {
+            $dirName = $dirName . '/image';
+        }
+        //
+    } else {
+        //
+        $dirPath = realpath( __DIR__ . '/../../../../../../' ).'\\dbdir\\'.$images_erp;
+        //
+        if ( !is_dir( $dirPath ) ) {
+            mkdir( $dirPath, 0755 );
+        }
+        //
+        if ( $image_folder != '' ) {
+            $dirName = $dirPath . '\\' . $owner_id . '\\'.$image_folder;
+        } else {
+            $dirName = $dirPath . '\\' . $owner_id . '\image';
+        }
+        //
+    }
+    //
+    $fileName = $dirName . '/' . $imageId . '.jpeg';
+    //
+    $file_exists_status = file_exists( $fileName );
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.jpg';
+        $file_exists_status = file_exists( $fileName );
+    }
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.png';
+        $file_exists_status = file_exists( $fileName );
+    }
+    //
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.webp';
+        $file_exists_status = file_exists( $fileName );
+    }
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.pdf';
+        $file_exists_status = file_exists( $fileName );
+        if ( $file_exists_status == TRUE ) {
+            file_put_contents( 'pdf/resume.pdf', file_get_contents( $fileName ) );
+            Router::redirect( HTTP_HOST_WEBROOT.'/pdf/resume.pdf' );
+        }
+    }
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.docx';
+        $file_exists_status = file_exists( $fileName );
+        if ( $file_exists_status == TRUE ) {
+            file_put_contents( 'pdf/resume.pdf', file_get_contents( $fileName ) );
+            Router::redirect( HTTP_HOST_WEBROOT.'/pdf/resume.docx' );
+        }
+    }
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.dot';
+        $file_exists_status = file_exists( $fileName );
+        if ( $file_exists_status == TRUE ) {
+            file_put_contents( 'pdf/resume.pdf', file_get_contents( $fileName ) );
+            Router::redirect( HTTP_HOST_WEBROOT.'/pdf/resume.dot' );
+        }
+    }
+    //
+    if ( $file_exists_status != TRUE ) {
+        $fileName = $dirName . '/' . $imageId . '.dotx';
+        $file_exists_status = file_exists( $fileName );
+        if ( $file_exists_status == TRUE ) {
+            file_put_contents( 'pdf/resume.pdf', file_get_contents( $fileName ) );
+            Router::redirect( HTTP_HOST_WEBROOT.'/pdf/resume.dotx' );
+        }
+    }
+    //
+    if ( $file_exists_status == TRUE ) {
+        $file_exists_size = filesize( $fileName );
+    } else {
+        $file_exists_size = 0;
+    }
+    //
+    //echo '<br/>fileName:' . $fileName;
+    //echo '<br/>$file_exists_status:' . $file_exists_status;
+    //echo '<br/>$file_exists_size:' . $file_exists_size;
+    //die;
+    //
+    if ( ( $file_exists_status == TRUE ) && ( ( float ) $file_exists_size > 0 ) ) {
+        echo file_get_contents( $fileName );
+    } else {
+        echo file_get_contents( $defaultFileName1 );
+    }
+} else {
+    echo file_get_contents( $defaultFileName1 );
+}
+//
+?>
