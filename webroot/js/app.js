@@ -671,6 +671,6 @@ var THEMETAGS = THEMETAGS || {};
 
 
 function goToByScroll(id){
-  $('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+  $('html,body').animate({scrollTop: $("#"+id).offset().top - 100},'slow');
   return false;
 }
