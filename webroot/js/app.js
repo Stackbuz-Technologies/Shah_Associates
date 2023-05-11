@@ -670,7 +670,13 @@ var THEMETAGS = THEMETAGS || {};
 })();
 
 
-function goToByScroll(id){
+function goToByScroll(id,addActive){
   $('html,body').animate({scrollTop: $("#"+id).offset().top - 100},'slow');
+  const elements = document.querySelectorAll('.mylink');
+
+  elements.forEach((element) => {
+    element.classList.remove('active');
+  });
+  addActive.classList.add("active");
   return false;
 }
