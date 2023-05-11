@@ -5,3 +5,6 @@
 #imgbann{
 width: 578px;
 }
+.resize-none{
+    resize: none;
+}
