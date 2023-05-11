@@ -677,6 +677,8 @@ function goToByScroll(id,addActive){
   elements.forEach((element) => {
     element.classList.remove('active');
   });
-  addActive.classList.add("active");
+  if(addActive){
+    addActive.classList.add("active");
+  }
   return false;
 }
