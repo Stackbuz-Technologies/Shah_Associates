@@ -34,14 +34,10 @@ class Page404Controller extends Controller {
     //
 
     public function index() {
-        //
-        require ROOT . DS . 'controllers' . DS . 'loginstatus.controller.php';
-        //
+
     }
     public function norecord() {
-        //
-        require ROOT . DS . 'controllers' . DS . 'loginstatus.controller.php';
-        //
+
     }
 
 }
