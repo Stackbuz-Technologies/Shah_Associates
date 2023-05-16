@@ -36,4 +36,10 @@ margin-top: 90px;
 }
 #btnEnq{
 background-color: #ffb116;
+color: white;
+}
+#btnEnq:hover{
+    background-color: #fff !important;
+    color: black !important;
+    border: 2px solid black;
 }
