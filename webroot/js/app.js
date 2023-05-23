@@ -669,6 +669,55 @@ var THEMETAGS = THEMETAGS || {};
   });
 })();
 
-function validationForContact(){
+function validationForContact() {
+  var number_format = /^[0-9]+$/;
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  var validateMobileFirstChar = document.getElementById('visitor_mobile').value.charAt(0);
+  if (document.getElementById('visitor_fname').value == '') {
+    document.getElementById('fristnameval').innerHTML = "Frist Name is Required !";
+    return false;
+  } else {
+    document.getElementById('fristnameval').innerHTML = "";
+  }
+  //
+  if (document.getElementById('visitor_mobile').value != '') {
+    if (!document.getElementById('visitor_mobile').value.match(number_format)) {
+      document.getElementById('validateMobile').innerHTML = "Invalid Mobile Number";
+      return false;
+    }
+     if (document.getElementById('visitor_mobile').value.length != 10) {
+      document.getElementById('validateMobile').innerHTML = "Invalid Mobile Number";
+      return false;
+    }
+     if (validateMobileFirstChar == '6' || validateMobileFirstChar == '1' || validateMobileFirstChar == '2' || validateMobileFirstChar == '3' || validateMobileFirstChar == '5' || validateMobileFirstChar == '4') {
+      document.getElementById('validateMobile').innerHTML = "Invalid Mobile Number";
+      return false;
+    }
+    document.getElementById('validateMobile').innerHTML = "";
+  } else {
+    document.getElementById('validateMobile').innerHTML = "Mobile No is Required !";
+    return false;
+  }
+
+  //
+  if (document.getElementById('visitor_email').value == '') {
+    document.getElementById('validatEmail').innerHTML = "Email Id is Required !";
+    return false;
+  } else {
+    //
+    if (document.getElementById('visitor_email').value.match(mailformat)) {
+      document.getElementById('validatEmail').innerHTML = "";
+    } else {
+      document.getElementById('validatEmail').innerHTML = "Invalid Email Address";
+    }
+
+  }
+
+  if (document.getElementById('visitor_other_info').value == '') {
+    document.getElementById('visitorotherinfo').innerHTML = "Message is Required !";
+    return false;
+  } else {
+    document.getElementById('visitorotherinfo').innerHTML = "";
+  }
   return true;
 }
