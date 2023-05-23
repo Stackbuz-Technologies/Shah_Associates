@@ -31,11 +31,7 @@ class AboutusController extends Controller {
     public function __construct( $parameter ) {
     }
     //
-
     public function index() {
-    }
-    //
-    public function register() {
     }
     //
 }
