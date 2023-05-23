@@ -262,6 +262,9 @@ color: white;
 	-webkit-text-stroke: 1px #fff !important;
 	color: #006495 !important;
 }
+.pt-50{
+	padding-top: 50px;
+}
 
 .mylink{
 	color: #ffff !important;
