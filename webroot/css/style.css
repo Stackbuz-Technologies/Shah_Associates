@@ -263,3 +263,9 @@ color: white;
 	color: #006495 !important;
 }
 
+.mylink{
+	color: #ffff !important;
+}
+.mylink:hover{
+	color: #ffb116 !important;
+}
