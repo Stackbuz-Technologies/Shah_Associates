@@ -258,4 +258,8 @@ color: white;
 	-webkit-transform: translate3d(0, 100%, 0);
 	transform: translate3d(0, 100%, 0);
 }
+.banner-color{
+	-webkit-text-stroke: 1px #fff !important;
+	color: #006495 !important;
+}
 
