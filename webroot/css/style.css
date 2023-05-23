@@ -239,11 +239,11 @@ color: white;
 	background: #fff;
 	color: #37474f;
 }
-.buttons--rayen > span {
+.buttons--rayen > a {
 	display: block;
 }
 .buttons--rayen::before,
-.buttons--rayen > span {
+.buttons--rayen > a {
 	padding: 1em 2em;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
@@ -254,7 +254,7 @@ color: white;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
-.buttons--rayen:hover > span {
+.buttons--rayen:hover > a {
 	-webkit-transform: translate3d(0, 100%, 0);
 	transform: translate3d(0, 100%, 0);
 }
