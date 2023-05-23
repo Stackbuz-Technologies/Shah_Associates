@@ -668,3 +668,7 @@ var THEMETAGS = THEMETAGS || {};
     });
   });
 })();
+
+function validationForContact(){
+  return true;
+}

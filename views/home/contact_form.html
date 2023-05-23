@@ -10,13 +10,13 @@
         </div>
         <div class="row justify-content-lg-between align-items-center">
             <div class="col-lg-6 col-md-8" id="contactbg" >
-                <form action="<?=HTTP_HOST;?>/demo/demo_submit" class="register-form" method="post" onsubmit="return validationForContact(); "> 
+                <form action="javascript:void(0);" class="register-form" method="post" onsubmit="return validationForContact(); "> 
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="firstName" class="mb-1">First name <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="visitor_fname" name="visitor_fname" 
-                                    placeholder="First name" aria-label="First name" onblur="validationForDemoFname(); return false;">
+                                    placeholder="First name" aria-label="First name">
                             </div>
                             <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="jobtype"></p>
                         </div>
@@ -31,7 +31,7 @@
                             <label for="phone" class="mb-1">Phone <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="visitor_mobile" name="visitor_mobile"
-                                     placeholder="Phone" aria-label="Phone" onblur="validationForDemoMobile(); return false;" >
+                                     placeholder="Phone" aria-label="Phone" >
                             </div>
                             <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"  id="validateMobile"></p>
                         </div>
@@ -39,7 +39,7 @@
                             <label for="email" class="mb-1">Email<span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="visitor_email" name="visitor_email"
-                                     placeholder="Email Id" aria-label="work-Email" onblur="validationForDemoEmail(); return false;">
+                                     placeholder="Email Id" aria-label="work-Email">
                             </div>
                             <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="validatEmail"></p>
                         </div>
@@ -47,7 +47,7 @@
                             <label for="yourMessage" class="mb-1">Message <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <textarea class="form-control resize-none" name="visitor_other_info" id="visitor_other_info"
-                                     placeholder=" How can we help you? " style="height: 120px" onblur="validationForDemoMassage(); return false;"></textarea>
+                                     placeholder=" How can we help you? " style="height: 120px"></textarea>
                                 <input type="hidden" id="visitor_type" name="visitor_type" value="contact_visitor" />
                             </div>
                             <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="visitorotherinfo"></p>
