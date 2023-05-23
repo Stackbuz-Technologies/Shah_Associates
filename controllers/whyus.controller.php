@@ -31,7 +31,6 @@ class WhyusController extends Controller {
     public function __construct( $parameter ) {
     }
     //
-
     public function index() {
     }
     //
