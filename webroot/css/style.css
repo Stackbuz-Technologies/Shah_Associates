@@ -272,3 +272,30 @@ color: white;
 .mylink:hover{
 	color: #ffb116 !important;
 }
+.close-red{
+	background: red;
+	border-radius: 50px;
+	padding: 1px 7px;
+	color: #f1f3f4 !important;
+	cursor: pointer;
+	margin-right: 12px;
+}
+.close-green{
+	background: rgb(6, 102, 24);
+	border-radius: 50px;
+	padding: 1px 7px;
+	color: #f1f3f4 !important;
+	cursor: pointer;
+	margin-right: 12px;
+}
+.close-red:hover{
+	color: black !important;
+}
+.close-green:hover{
+	color: black !important;
+}
+.display-flex-class{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}

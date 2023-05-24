@@ -34,7 +34,7 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     define( 'GB_API_KEY', '1de8e66824422b49c970e947967ecf48' );
     //
     define( 'GB_API_HOST', $_SERVER[ 'HTTP_HOST' ] );
-    define( 'GB_API_FOLDER', 'tradesoft_api' );
+    define( 'GB_API_FOLDER', 'accurateca_api' );
     define( 'GB_SYSTEM_ONOFF', 'OFF' );
     define( 'GB_OWNER_ID', '' );
     //

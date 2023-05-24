@@ -721,3 +721,6 @@ function validationForContact() {
   }
   return true;
 }
+function showSubmitDiv() {
+  document.getElementById('msgDiv').style.display = 'none';
+}
