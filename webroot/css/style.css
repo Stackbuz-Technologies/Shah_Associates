@@ -269,8 +269,9 @@ color: white;
 .mylink{
 	color: #ffff !important;
 }
-.mylink:hover{
+ .active {
 	color: #ffb116 !important;
+
 }
 .close-red{
 	background: red;

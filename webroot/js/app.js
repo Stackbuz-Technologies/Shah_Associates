@@ -668,7 +668,7 @@ var THEMETAGS = THEMETAGS || {};
     });
   });
 })();
-
+//validation for contact
 function validationForContact() {
   var number_format = /^[0-9]+$/;
   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
