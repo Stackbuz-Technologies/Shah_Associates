@@ -300,3 +300,22 @@ color: white;
 	justify-content: start;
 	align-items: center;
 }
+
+.readmore{
+	color: red;
+	cursor: pointer;
+	float: right;
+	position: absolute;
+bottom: 8px;
+right: 16px;
+margin-top: 20px;
+font-size: 18px;
+}
+.readmore:hover{
+    color: rgb(76, 46, 243) !important;
+}
+.shadowBox{
+border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
