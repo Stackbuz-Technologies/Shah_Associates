@@ -6,3 +6,26 @@
 <script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/aos.js?v=<?=Config::get('version');?>"></script>
 <script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/massonry.min.js?v=<?=Config::get('version');?>"></script>
 <script src="<?=HTTP_HOST_WEBROOT?>/js/app.js?v=<?=Config::get('version');?>"></script>
+<?php
+$request_uri = explode( '/', filter_var( trim( $_SERVER[ 'REQUEST_URI' ], '/' ), FILTER_SANITIZE_URL ) );
+        if ( PROJECT_DIR != '' ) {
+          unset( $request_uri[ 0 ] );
+          $request_uri = array_values( $request_uri );
+        }
+?>
+<script>
+    
+    var url_param1 = "<?php echo $request_uri[0];?>";
+    var url_param2 = "<?php echo $request_uri[1];?>"; 
+    if (url_param1 == "home" || url_param1 == "") {
+        document.getElementById('home').classList.add('active');
+    } else if (url_param1 == "whyus" ) {
+        document.getElementById('whyus').classList.add('active');
+    } else if (url_param1 == "service" ) {
+        document.getElementById('service').classList.add('active');
+    } else if (url_param1 == "aboutus") {
+        document.getElementById('aboutus').classList.add('active');
+    } else if (url_param1 == "contactus") {
+        document.getElementById('contactus').classList.add('active');
+    } 
+    </script>

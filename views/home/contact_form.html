@@ -1,3 +1,6 @@
+<?php
+$msgDisplayStatus = Session::get( 'visitor_response');
+?>
 <section class="contact-us-form pb-40" id="contact">
     <div class="container">
         <div class="row justify-content-center mb-4">
@@ -9,16 +12,18 @@
             </div>
         </div>
         <div class="row justify-content-lg-between align-items-center">
-            <div class="col-lg-6 col-md-8" id="contactbg" >
-                <form action="<?=HTTP_HOST;?>/demo/demo_submit" class="register-form" method="post" onsubmit="return validationForContact(); "> 
+            <div class="col-lg-6 col-md-8" id="contactbg">
+                <form action="<?=HTTP_HOST;?>/contactus" class="register-form" method="post"
+                    onsubmit="return validationForContact(); ">
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="firstName" class="mb-1">First name <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="visitor_fname" name="visitor_fname" 
-                                    placeholder="First name" aria-label="First name" onblur="validationForDemoFname(); return false;">
+                                <input type="text" class="form-control" id="visitor_fname" name="visitor_fname"
+                                    placeholder="First name" aria-label="First name">
                             </div>
-                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="jobtype"></p>
+                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"
+                                id="fristnameval"></p>
                         </div>
                         <div class="col-sm-6 ">
                             <label for="lastName" class="mb-1">Last name</label>
@@ -31,39 +36,59 @@
                             <label for="phone" class="mb-1">Phone <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="visitor_mobile" name="visitor_mobile"
-                                     placeholder="Phone" aria-label="Phone" onblur="validationForDemoMobile(); return false;" >
+                                    placeholder="Phone" aria-label="Phone">
                             </div>
-                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"  id="validateMobile"></p>
+                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"
+                                id="validateMobile"></p>
                         </div>
                         <div class="col-sm-6">
                             <label for="email" class="mb-1">Email<span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" id="visitor_email" name="visitor_email"
-                                     placeholder="Email Id" aria-label="work-Email" onblur="validationForDemoEmail(); return false;">
+                                    placeholder="Email Id" aria-label="work-Email">
                             </div>
-                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="validatEmail"></p>
+                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"
+                                id="validatEmail"></p>
                         </div>
                         <div class="col-12">
                             <label for="yourMessage" class="mb-1">Message <span class="text-danger">*</span></label>
                             <div class="input-group mb-3">
-                                <textarea class="form-control resize-none" name="visitor_other_info" id="visitor_other_info"
-                                     placeholder=" How can we help you? " style="height: 120px" onblur="validationForDemoMassage(); return false;"></textarea>
+                                <textarea class="form-control resize-none" name="visitor_other_info"
+                                    id="visitor_other_info" placeholder=" How can we help you? "
+                                    style="height: 120px"></textarea>
                                 <input type="hidden" id="visitor_type" name="visitor_type" value="contact_visitor" />
                             </div>
-                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;" id="visitorotherinfo"></p>
+                            <p class="text-left" style="color: red;margin-top: -10px;font-size: 13px;"
+                                id="visitorotherinfo"></p>
                         </div>
                     </div>
                     <?php if($msgDisplayStatus == 'YES'){ ?>
                     <input type="text" id="noneType" class="opacity-0 text-opacity-0-height" />
-                    <div id="msgDiv" class="alert alert-success alert-dismissible">
-                        <a class="close" data-dismiss="alert" aria-label="close" onclick="showSubmitDiv();">&times;</a>
-                        We appreciate you for contacting us. One of our colleagues will
-                        get back to you shortly.
+                    <div id="msgDiv"
+                        class="alert alert-success alert-dismissible display-flex-class">
+                        <div>
+                            <a class="close close-green" data-dismiss="alert" aria-label="close"
+                                onclick="showSubmitDiv();">&times;</a>
+                        </div>
+                        <div>Thank you for contacting us. One of our colleagues will
+                            get back to you shortly.</div>
                     </div>
-                    <div id="submitDiv" class="display-none">
+                    <?php } else if($msgDisplayStatus == 'NO') { ?>
+                    <input type="text" id="noneType" class="opacity-0 text-opacity-0-height" />
+                    <div id="msgDiv"
+                        class="alert alert-danger alert-dismissible display-flex-class">
+                        <div>
+                            <a class="close close-red" data-dismiss="alert" aria-label="close"
+                                onclick="showSubmitDiv();">&times;</a>
+                        </div>
+                        <div>
+                            Something went wrong please try again !
+                        </div>
+                    </div>
+                    <div>
                         <button type="submit" class="btn btn-primary mt-4">Get in Touch</button>
                     </div>
-                    <?php } else { ?>
+                    <?php }else{ ?>
                     <div>
                         <button type="submit" class="btn btn-primary mt-4">Get in Touch</button>
                     </div>
@@ -72,8 +97,10 @@
             </div>
             <div class="col-lg-5 col-md-10">
                 <div class="contact-us-img">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3784.316944309684!2d73.85831551489197!3d18.46929738743886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDI4JzA5LjUiTiA3M8KwNTEnMzcuOCJF!5e0!3m2!1sen!2sin!4v1684142676045!5m2!1sen!2sin"
-                     width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3784.316944309684!2d73.85831551489197!3d18.46929738743886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDI4JzA5LjUiTiA3M8KwNTEnMzcuOCJF!5e0!3m2!1sen!2sin!4v1684142676045!5m2!1sen!2sin"
+                        width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

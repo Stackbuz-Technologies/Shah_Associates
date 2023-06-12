@@ -26,7 +26,7 @@ font-weight: bold;
 
 #bannfirstDiv{
     background-color: #0000006b;
-margin-top: 90px;
+margin-top: 50px;
 }
 .lightback{
     background: #f4f4f4;
@@ -239,12 +239,12 @@ color: white;
 	background: #fff;
 	color: #37474f;
 }
-.buttons--rayen > span {
+.buttons--rayen > a {
 	display: block;
 }
 .buttons--rayen::before,
-.buttons--rayen > span {
-	padding: 1em 2em;
+.buttons--rayen > a {
+	padding-top: 10px;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
@@ -254,8 +254,49 @@ color: white;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
-.buttons--rayen:hover > span {
+.buttons--rayen:hover > a {
 	-webkit-transform: translate3d(0, 100%, 0);
 	transform: translate3d(0, 100%, 0);
 }
+.banner-color{
+	-webkit-text-stroke: 1px #fff !important;
+	color: #006495 !important;
+}
+.pt-50{
+	padding-top: 50px;
+}
 
+.mylink{
+	color: #ffff !important;
+}
+ .active {
+	color: #ffb116 !important;
+
+}
+.close-red{
+	background: red;
+	border-radius: 50px;
+	padding: 1px 7px;
+	color: #f1f3f4 !important;
+	cursor: pointer;
+	margin-right: 12px;
+}
+.close-green{
+	background: rgb(6, 102, 24);
+	border-radius: 50px;
+	padding: 1px 7px;
+	color: #f1f3f4 !important;
+	cursor: pointer;
+	margin-right: 12px;
+}
+.close-red:hover{
+	color: black !important;
+}
+.close-green:hover{
+	color: black !important;
+}
+.display-flex-class{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+}

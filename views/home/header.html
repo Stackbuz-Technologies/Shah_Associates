@@ -1,7 +1,7 @@
 <!--header start-->
 <header class="main-header position-absolute w-100">
-    <nav class="navbar navbar-expand-xl navbar-dark sticky-header z-10">
-        <div class="container d-flex align-items-center justify-content-lg-between position-relative">
+    <nav class="navbar navbar-expand-xl navbar-dark sticky-header z-10 bg-gradient text-white p-0">
+        <div class="container d-flex align-items-center justify-content-lg-between position-relative ">
             <a href="<?=HTTP_HOST;?>" class="navbar-brand d-flex align-items-center mb-md-0 text-decoration-none">
                 <img src="<?=HTTP_HOST_WEBROOT?>/img/swapnilshahLogo.jpeg" alt="logo" class="img-fluid logo-white" id="MainLogo"/>
                 <img src="<?=HTTP_HOST_WEBROOT?>/img/swapnilshahLogo.jpeg" alt="logo" class="img-fluid logo-color" id="MainLogo"/>
@@ -11,13 +11,13 @@
              data-bs-toggle="offcanvas" role="button"></span>
             </a>
             <div class="clearfix"></div>
-            <div class="collapse navbar-collapse justify-content-start">
+            <div class="collapse navbar-collapse justify-content-start navigation ">
                 <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                    <li><a href="javascript:void(0);" class="nav-link mylink active" onclick="goToByScroll('home',this);">Home</a></li>
-                    <li><a href="javascript:void(0);" class="nav-link mylink" onclick="goToByScroll('whyus',this);">Why Us</a></li>
-                    <li><a href="javascript:void(0);" class="nav-link mylink" onclick="goToByScroll('services',this);">Services</a></li>
-                    <li><a href="javascript:void(0);" class="nav-link mylink" onclick="goToByScroll('aboutus',this);">About Us</a></li>
-                    <li><a href="javascript:void(0);" onclick="goToByScroll('contact',this);" class="nav-link mylink">Contact Us</a></li>
+                    <li><a href="<?=HTTP_HOST;?>/home" class="nav-link mylink" id="home">Home</a></li>
+                    <li><a href="<?=HTTP_HOST;?>/whyus" class="nav-link mylink" id="whyus">Why Us</a></li>
+                    <li><a href="<?=HTTP_HOST;?>/service" class="nav-link mylink" id="service">Services</a></li>
+                    <li><a href="<?=HTTP_HOST;?>/aboutus"  class="nav-link mylink" id="aboutus" >About Us</a></li>
+                    <li><a href="<?=HTTP_HOST;?>/contactus"  class="nav-link mylink" id="contactus" >Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -34,11 +34,11 @@
         </div>
         <div class="offcanvas-body z-10">
             <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                <li><a href="javascript:void(0);" class="nav-link" onclick="goToByScroll('home');" data-bs-dismiss="offcanvas">Home</a></li>
-                <li><a href="javascript:void(0);" class="nav-link" onclick="goToByScroll('whyus');"  data-bs-dismiss="offcanvas">Why Us</a></li>
-                <li><a href="javascript:void(0);" class="nav-link" onclick="goToByScroll('services');" data-bs-dismiss="offcanvas">Services</a></li>
-                <li><a href="javascript:void(0);" class="nav-link" onclick="goToByScroll('aboutus');" data-bs-dismiss="offcanvas">About Us</a></li>
-                <li><a href="javascript:void(0);" onclick="goToByScroll('contact');" class="nav-link">Contact Us</a></li>
+                <li><a href="<?=HTTP_HOST;?>/home"class="nav-link" >Home</a></li>
+                <li><a href="<?=HTTP_HOST;?>/whyus" class="nav-link" >Why Us</a></li>
+                <li><a href="<?=HTTP_HOST;?>/service" class="nav-link" >Services</a></li>
+                <li><a href="<?=HTTP_HOST;?>/aboutus" class="nav-link" >About Us</a></li>
+                <li><a href="<?=HTTP_HOST;?>/contactus" >Contact Us</a></li>
             </ul>
         </div>
     </div>
