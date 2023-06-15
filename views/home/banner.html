@@ -29,22 +29,30 @@
             </div>
             <div class="col-lg-3 col-md-10">
             </div>
+            <?php
+            if(sizeof($data['Content_Details']) > 0){
+            ?>
             <div class="col-lg-3 col-md-10" id="bannfirstDivwhite">
                 <h5 class="banner-h5-colors">Important Notice</h5>
                 <br>
-
                 <a href="">
-                    <marquee class="marq lead banner-p-impNot-color text-center" direction="up" scrolldelay="150"
-                        loop="">
+                    <marquee class="marq lead banner-p-impNot-color text-center" direction="up" scrolldelay="150" loop="">
+                        <?php  
+                        $cnt = 1;
+                         for($Contentcnt = 0;$Contentcnt < sizeof($data['Content_Details']);$Contentcnt++){ 
+                           $content_id = $data['Content_Details'][$Contentcnt]['content_id'];
+                           $content_name = $data['Content_Details'][$Contentcnt]['content_name'];
+                           $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
+                           $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
+                           ?>
                         <span>
-                            "Important Notice Important Notice Important Notice "
+                            "<?php echo $content_value; ?>"
                         </span><br>
-                        <span>
-                            "Important Notice Important Notice Important Notice "
-                        </span><br>
+                        <?php  $cnt++; } ?>
                     </marquee>
+                    </a>
                     <!-- /container -->
-                    <div class="container">
+                    <!-- <div class="container">
                         <section class="content">
                             <div class="box bg-1">
                                 <a href="<?=HTTP_HOST;?>/contactus"> <button
@@ -52,8 +60,11 @@
                                         data-text="Get In Touch" style="padding: 10px;">Click To Check</button></a>
                             </div>
                         </section>
-                    </div>
+                    </div> -->
+                    <br>
             </div>
+            <?php } ?>
+
         </div>
     </div>
 </section>
