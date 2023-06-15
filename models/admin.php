@@ -58,7 +58,7 @@ class Admin extends Model {
             //
             return $response;
             //
-        } else if ( $request[ 'admin_email' ] == 'Admin' || $request[ 'admin_password' ] == 'Admin@123' ) {
+        } else if ( $request[ 'admin_email' ] == 'swapnilshahasso@gmail.com' || $request[ 'admin_password' ] == 'Admin@123' ) {
             //
             $admin_email = $request[ 'admin_email' ];
             $admin_password = md5($request[ 'admin_password' ]);

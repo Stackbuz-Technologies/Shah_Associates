@@ -81,7 +81,7 @@ class AdminController extends Controller {
     //
     //
     public function admin_profile() {
-        if( Session::get( 'admin_email' ) == 'Admin'){
+        if( Session::get( 'admin_email' ) == 'swapnilshahasso@gmail.com'){
         //
         $request = array();
         //
