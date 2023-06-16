@@ -1,6 +1,6 @@
 <!--hero section start-->
 <section id="home" class="hero-section pb-80 text-white mt-5" style="position: relative;background: url('<?=HTTP_HOST_WEBROOT?>/img/bannerMain.jpg')no-repeat center right;background-size: cover;height: 600px;">
-    <div style="position:absolute;background: #00000054;width: 100%;height: 100%;;">
+    <div class="backcover">
         <div class="container">
             <div class="row align-items-center">
                 <!-- ///////////////////// -->
@@ -30,6 +30,42 @@
                 <div class="col-lg-6 col-md-8 mt-5">
                 </div>
             </div>
+            <?php
+            if(sizeof($data['Content_Details']) > 0 ){
+            ?>
+            <div class="col-lg-3 col-md-10" id="bannfirstDivwhite">
+                <h5 class="banner-h5-colors">Important Notice</h5>
+                <br>
+                <a href="">
+                    <marquee class="marq lead banner-p-impNot-color text-center" direction="up" scrolldelay="150" loop="">
+                        <?php  
+                        $cnt = 1;
+                         for($Contentcnt = 0;$Contentcnt < sizeof($data['Content_Details']);$Contentcnt++){ 
+                           $content_id = $data['Content_Details'][$Contentcnt]['content_id'];
+                           $content_name = $data['Content_Details'][$Contentcnt]['content_name'];
+                           $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
+                           $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
+                           ?>
+                        <span>
+                            "<?php echo $content_value; ?>"
+                        </span><br>
+                        <?php  $cnt++; } ?>
+                    </marquee>
+                    </a>
+                    <!-- /container -->
+                    <!-- <div class="container">
+                        <section class="content">
+                            <div class="box bg-1">
+                                <a href="<?=HTTP_HOST;?>/contactus"> <button
+                                        class="button buttons buttons--rayen buttons--border-thin buttons--text-thick buttons--text-upper "
+                                        data-text="Get In Touch" style="padding: 10px;">Click To Check</button></a>
+                            </div>
+                        </section>
+                    </div> -->
+                    <br>
+            </div>
+            <?php } ?>
+
         </div>
     </div>
 </section>

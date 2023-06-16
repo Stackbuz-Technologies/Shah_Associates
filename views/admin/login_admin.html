@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-10">
+            <div class="section-heading text-center">
+                <h2 class="mt-3">Admin Login Panel</h2>
+            </div>
+        </div>
+    </div>
+
+        <div id="main" class="main-container">
+            <div class="row justify-content-center">
+             
+                <div class="col-lg-6 col-md-10">
+                    <div class="text-center" id="firstdivadmin">
+                        <h4 class="mt-3">Welcome Admin's</h4>
+                        <p id="errMassage">
+                            <?php if( Session::get( 'error_message' ) != ''){
+                                echo $data['massge'];
+                            }
+                            ?>
+                        </p>
+                        <form action="<?=HTTP_HOST;?>/admin" class="register-form" method="post">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-12 width50per ">
+                                    <label for="UserEmailId" class="mb-1">Admin Email ID <span class="text-danger">*</span></label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="admin_email" name="admin_email"
+                                            placeholder="Enter Email ID / Username  " aria-label="User Email ID">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 width50per">
+                                    <label for="Passward" class="mb-1">Admin Password <span class="text-danger">*</span></label>
+                                    <div class="input-group mb-3">
+                                        <input type="passward" class="form-control" id="admin_password" name="admin_password"
+                                            placeholder="Enter Password" aria-label="userpassword">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        
+                            <div>
+                                <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <?php unset($_SESSION['error_message']); ?>
+                <div class="col-lg-6 col-md-10">
+                    <div class="section-heading text-center">
+                        <img src="<?=HTTP_HOST_WEBROOT?>/img/login_images.png" alt="Login Images" id="loginimg"
+                        class="img-fluid rounded-custom mb-3"><br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+</div>

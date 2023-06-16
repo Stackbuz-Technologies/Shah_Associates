@@ -24,6 +24,10 @@
 ?>
 <?php
 
+$image_model_path = ROOT . DS . 'models' . DS . 'image.php';
+require_once $image_model_path;
+//
+
 class Contact extends Model {
 
     // json response array
@@ -32,49 +36,240 @@ class Contact extends Model {
 
     public function __construct() {
 
+        $this->ImageModel = new Image();
     }
     //
 
-    public function visitor_transaction( $request ) {
+    public function visitor_crud( $request ) {
         //
-        $commonFieldArray = array(
+        $tableName = 'visitor';
+        //
+        require  ROOT . DS . 'models' . DS . 'configModel.php';
+        //
+        if ( $params[ 'req_skip' ] == 'YES' ) {
+            $request = $params;
+        }
+        //
+        if ( $request[ 'visitor_id' ] != '' ) {
+            $visitor_id = $request[ 'visitor_id' ];
+        }
+        //
+        $operation = $request[ 'operation' ];
+        //
+        if ( $operation == 'update' || $operation == 'insert' ) {
             //
-            'api_request_type' => 'WEBSITE',
-            'api_login_token' => Session::get( 'api_login_token' ),
-            'api_prod_key' => Session::get( 'api_prod_key' ),
-            'api_request_id' => Session::get( 'api_request_id' ),
-            'api_key' => GB_ECOM_API_KEY,
+            $qSelectColumnNames = 'SHOW COLUMNS FROM visitor';
+            $resSelColumnNames = $conn->query( $qSelectColumnNames );
             //
-            'domain_name' => GB_DOMAIN_NAME,
-            'owner_id' => GB_OWNER_ID,
-            'system_onoff' => GB_SYSTEM_ONOFF,
+            while ( $row = $resSelColumnNames->fetch_assoc() ) {
+                //
+                $tableColumnName = $row[ 'Field' ];
+                $tableColumnValue = $conn->real_escape_string( stripslashes( trim( $request[ $tableColumnName ] ) ) );
+                //
+                if ( $tableColumnName != 'visitor_id' ) {
+                    //
+                    $tableColumnNameStr = $tableColumnNameStr . $tableColumnName . ',';
+                    //
+                    if ( $tableColumnName == 'visitor_since' || $tableColumnName == 'visitor_date') {
+                        $drColumnValues = $drColumnValues . 'now(),';
+                    } else if ( $tableColumnName != visitor_id ) {
+                        $drColumnValues = $drColumnValues . "'$tableColumnValue',";
+                        $drUpdateColumns .= "$tableColumnName='$tableColumnValue',";
+                    }
+                    //
+                }
+                //
+            }
             //
-            'owner_login_id' => Session::get( 'owner_login_id' ),
-            'owner_user_staff_id' => Session::get( 'owner_user_staff_id' ),
-            'owner_user_password' => Session::get( 'owner_user_password' )
+            $tableColumnNameStr = rtrim( $tableColumnNameStr, ',' );
+            $drColumnValues = rtrim( $drColumnValues, ',' );
+            $drUpdateColumns = rtrim( $drUpdateColumns, ',' );
             //
-        );
-        //
-        $mergedArray = array_merge( $commonFieldArray, $request );
-        $post_fields_arr = json_encode( $mergedArray );
-        //
-        $ch = curl_init();
-        curl_setopt( $ch, CURLOPT_URL, GB_API_HOST . '/' . GB_API_FOLDER . '/visitor/' . $request[ 'function_name' ] );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt( $ch, CURLOPT_POST, 1 );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $post_fields_arr );
-        curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
-        curl_setopt( $ch, CURLOPT_CUSTOMREQUEST, 'POST' );
-        curl_setopt( $ch, CURLOPT_POSTREDIR, 3 );
-        //
-        $result = curl_exec( $ch );
-        $result_arr = json_decode( $result, true );
-        //
-        curl_close( $ch );
-        return $result_arr;
+            if ( $operation == 'insert' ) {
+                //
+                $query = "INSERT INTO visitor ($tableColumnNameStr)VALUES($drColumnValues)";
+                //
+                if ( !$conn->query( $query ) ) {
+                    die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
+                }
+                //
+                $qSelectRecentEntry = 'SELECT visitor_id FROM visitor ORDER BY visitor_id DESC LIMIT 0,1';
+                $resSelectRecentEntry = $conn->query( $qSelectRecentEntry );
+                $rowSelectRecentEntry = $resSelectRecentEntry->fetch_assoc();
+                //
+                $returnResultArray = array( 'visitor_id' => $rowSelectRecentEntry[ 'visitor_id' ] );
+                //
+            } else if ( $operation == 'update' ) {
+                //
+                if ( $visitor_id != '' && $visitor_id != NULL ) {
+                    //
+                    $query = "UPDATE visitor SET $drUpdateColumns WHERE visitor_id = '$visitor_id'";
+                    //
+                    if ( !$conn->query( $query ) ) {
+                        die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
+                    }
+                    //
+                }
+                //
+                $returnResultArray = array( 'visitor_id' => $visitor_id );
+                //
+            }
+            //
+            if ( $isEncrypt == 'Y' ) {
+                $response = encrypt( json_encode( $returnResultArray ), $key );
+            } else {
+                $response = json_encode( $returnResultArray );
+            }
+            //
+            return $response;
+            //
+        } else if ( $operation == 'delete' ) {
+            //
+            if ( $visitor_id != '' && $visitor_id != NULL ) {
+                //
+                $deleteQuery = "DELETE FROM visitor WHERE visitor_id = '$visitor_id'";
+                //
+                if ( !$conn->query( $deleteQuery ) ) {
+                    die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
+                }
+                //
+            }
+            //
+        }
         //
     }
+    //
+    public function get_visitors( $params ) {
+        //
+        $tableName = 'visitor';
+       //
+        require  ROOT . DS . 'models' . DS . 'configModel.php';
+       //
+       $user_id = $request[ 'user_id' ];
+       $where_condition = $request[ 'where_condition' ];
+       $limit_from = $request[ 'limit_from' ];
+       $limit_to = $request[ 'limit_to' ];
+       //
+       if ( $limit_from != '' && $limit_to != '' ) {
+           $queryLimitStr = " LIMIT $limit_from,$limit_to";
+       } else {
+           $queryLimitStr = '';
+       }
+       //
+       if ( $visitor_id != '' ) {
+           if ( $where_condition != '' ) {
+               $qSelectvisitorDetails = "SELECT * FROM visitor WHERE visitor_id='$visitor_id' AND $where_condition ORDER BY visitor_id DESC $queryLimitStr";
+           } else {
+               $qSelectvisitorDetails = "SELECT * FROM visitor WHERE visitor_id='$visitor_id' ORDER BY visitor_id DESC $queryLimitStr";
+           }
+           $resSelectvisitorDetails = $conn->query( $qSelectvisitorDetails );
+           $noOfvisitorAvailable = $resSelectvisitorDetails->num_rows;
+
+          
+       } else {
+
+           if ( $where_condition != '' ) {
+               $qSelectvisitorDetails = "SELECT * FROM visitor WHERE $where_condition ORDER BY visitor_id DESC $queryLimitStr";
+           } else {
+               $qSelectvisitorDetails = "SELECT * FROM visitor ORDER BY visitor_id DESC $queryLimitStr";
+           }
+           
+           $resSelectvisitorDetails = $conn->query( $qSelectvisitorDetails );
+           $noOfvisitorAvailable = $resSelectvisitorDetails->num_rows;
+       }
+       //
+       if ( $noOfvisitorAvailable > 0 ) {
+           //
+           $rowDetailsArr = array();
+           $rowArrCounter = 0;
+           //
+           while ( $rowDetails = $resSelectvisitorDetails->fetch_assoc() ) {
+               //
+               // $visitor_resume_id = $rowDetails[ 'visitor_resume_id' ];
+               $visitor_image_id = $rowDetails[ 'visitor_image_id' ];
+               //
+               if ( $visitor_id != '' && $visitor_image_id != '' ) {
+                   //
+                   $qSelectImageDetails = "SELECT image_snap_fname FROM image WHERE image_id='$visitor_image_id'";
+                   $resImageDetails = $conn->query( $qSelectImageDetails );
+                   $rowImageDetails = $resImageDetails->fetch_assoc();
+                   $image_snap_fname = $rowImageDetails[ 'image_snap_fname' ];
+                   //
+                   $rowDetails[ 'profile_image_snap_fname' ] = $image_snap_fname;
+                   //
+               }
+               //
+               $rowDetailsArr[ $rowArrCounter ] = $rowDetails;
+               $rowArrCounter++;
+               //
+           }
+           //
+           return $rowDetailsArr;
+           //
+       } else {
+           //
+           $rowDetailsArr = 'Visitor not Found';
+           return $rowDetailsArr ;
+           //
+       }
+
+
+    }
+
+    public function get_visitor_history( $params ) {
+        //
+        require_once  ROOT . DS . 'models' . DS . 'configModel.php';
+        //
+        if ( $params[ 'req_skip' ] == 'YES' ) {
+            $request = $params;
+        }
+        //
+        $day1 = date( 'Y-m-d', strtotime( '-5 days' ) );
+        $day2 = date( 'Y-m-d', strtotime( '-4 days' ) );
+        $day3 = date( 'Y-m-d', strtotime( '-3 days' ) );
+        $day4 = date( 'Y-m-d', strtotime( '-2 days' ) );
+        $day5 = date( 'Y-m-d', strtotime( '-1 days' ) );
+        //
+        $qSelectVisitorData = "SELECT COUNT(*) AS visitor_count, visitor_date FROM visitor WHERE visitor_date IN ('$day1','$day2','$day3','$day4','$day5') GROUP BY visitor_date ORDER BY visitor_date DESC";
+        //
+        $resSelectVisitorData = $conn->query( $qSelectVisitorData );
+        $noOfVisitorAvailable = $resSelectVisitorData->num_rows;
+        //
+        if ( $noOfVisitorAvailable > 0 ) {
+            //
+            $rowDetailsArr = array();
+            $rowArrCounter = 0;
+            //
+            while ( $rowSelectVisitorData = $resSelectVisitorData->fetch_assoc() ) {
+                //
+                $rowDetailsArr[ $rowArrCounter ] = $rowSelectVisitorData;
+                //
+                $rowArrCounter++;
+                //
+            }
+            //
+            if ( $isEncrypt == 'Y' ) {
+                $response = encrypt( json_encode( $rowDetailsArr ), $key );
+            } else {
+                $response = json_encode( $rowDetailsArr );
+            }
+            //
+            return $response;
+            //
+        } else {
+            //
+            if ( $isEncrypt == 'Y' ) {
+                $response = encrypt( json_encode( 'Visitor Not Found' ), $key );
+            } else {
+                $response = json_encode( 'Visitor Not Found' );
+            }
+            //
+            return $response;
+            //
+        }
+        //
+    }
+    //
 
 }
 

@@ -29,7 +29,6 @@ require_once $contactr_model_path;
 
 class ContactusController extends Controller {
     //
-
     public function __construct() {
         $this->ContactModel = new Contact();
     }
@@ -42,10 +41,16 @@ class ContactusController extends Controller {
             $request = $_REQUEST;
             $visitor_type = $_REQUEST[ 'visitor_type' ];
             $sub_page = $_REQUEST[ 'sub_page' ];
-            $request[ 'function_name' ] = 'set_visitor';
             $request[ 'operation' ] = 'insert';
-            //
-            $response = $this->ContactModel->visitor_transaction( $request );
+            // //
+
+            // echo "<pre>";
+            // print_r($request);
+            // echo "</pre>";
+            // die();
+
+
+            $response = $this->ContactModel->visitor_crud( $request );
             //
             if ( $response[ 'visitor_id' ] != '' ) {
                 Session::set( 'visitor_response', 'YES' );
