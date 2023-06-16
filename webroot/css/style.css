@@ -259,8 +259,8 @@ color: white;
 	transform: translate3d(0, 100%, 0);
 }
 .banner-color{
-	-webkit-text-stroke: 1px #fff !important;
-	color: #006495 !important;
+	-webkit-text-stroke: 1px #2d2121 !important;
+	color: #33a8e1 !important;
 }
 .pt-50{
 	padding-top: 50px;
