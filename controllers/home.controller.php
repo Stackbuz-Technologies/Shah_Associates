@@ -43,7 +43,12 @@ class HomeController extends Controller {
     public function index() {
 
         $response = $this->AdminModel->get_content( $request );
-        $this->data[ 'Content_Details' ] = $response;
+        if ( $response != 'Content not Found' ) {
+            $this->data[ 'Content_Details' ] = $response;
+        } else {
+           $this->data[ 'Content_Details' ] = array();
+        }
+        
 
     }
     //

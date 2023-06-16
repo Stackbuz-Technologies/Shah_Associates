@@ -86,7 +86,11 @@ class AdminController extends Controller {
         $request = array();
         //
         $response = $this->AdminModel->get_content( $request );
-        $this->data[ 'Content_Details' ] = $response;
+        if ( $response != 'Content not Found' ) {
+            $this->data[ 'Content_Details' ] = $response;
+        } else {
+           $this->data[ 'Content_Details' ] = array();
+        }
         //
         $request[ 'where_condition' ] = "visitor_type = 'contact_visitor'";
         $response = $this->ContactModel->get_visitors( $request );
@@ -101,8 +105,12 @@ class AdminController extends Controller {
              $request = $_REQUEST;
             //
             $response = $this->AdminModel->curd_content( $request );
-
-            $this->data[ 'Content_Details' ] = $response;
+            if ( $response != 'Content not Found' ) {
+                $this->data[ 'Content_Details' ] = $response;
+            } else {
+               $this->data[ 'Content_Details' ] = array();
+            }
+            
             Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
     }
     //
