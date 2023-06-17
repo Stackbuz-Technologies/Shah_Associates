@@ -1,72 +1,82 @@
-<!--hero section start-->
-<section id="home" class="hero-section pb-80 text-white mt-5" style="position: relative;background: url('<?=HTTP_HOST_WEBROOT?>/img/bannerMain.jpg')no-repeat center right;background-size: cover;height: 600px;">
-    <div class="backcover">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- ///////////////////// -->
-                <!-- This was all taken from https://tympanus.net/Development/ButtonStylesInspiration/ but I needed to see it in CodePen -->
-                <!-- ///////////////// -->
-                <div class="col-lg-6 col-md-10" id="bannfirstDiv">
-                    <!-- <img src="<?=HTTP_HOST_WEBROOT?>/img/bannerimageGsttax.jpg" alt="hero img" class="img-fluid position-relative z-5" id="imgbann"> -->
-                    <div class="hero-content-wrap text-center mt-5">
-                        <h3 class="fw-bold display-6 banner-color ">Swapnil Shah & Associates</h3>
-                        <h6 class="banner-h6-color">Tax & Financial Advisor</h6>
-                        <br>
-                        <p class="lead banner-p-color text-center" style="font-style: italic;">"We are specialist in
-                            crafting all types of financial solutions!"</p>
-                        <!-- /container -->
-                        <div class="container">
-                            <section class="content">
-                                <div class="box bg-1">
-                                    <a href="<?=HTTP_HOST;?>/contactus"> <button
-                                            class="button buttons buttons--rayen buttons--border-thin buttons--text-thick buttons--text-upper "
-                                            data-text="Get In Touch" style="padding: 10px;">Get In Touch</button></a>
-                                </div>
-                            </section>
-                        </div>
-                        <!-- /container -->
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-8 mt-5">
-                </div>
-            </div>
+<div class="style-guide" id="bgantiquewhite">
+    
+    <!-- <div class=" pt-60 p-5"> -->
+        <!-- <div class="container mt-2">
+            <marquee class="marq lead banner-p-impNot-color text-center" direction="left" scrolldelay="150" loop="">
+                 <p class="lead banner-p-color text-center" style="font-style: italic;color: #ffcf90;">"We are specialist in
+                crafting all types of financial solutions!"</p>
+                </marquee>
+        </div> -->
+    <!-- </div> -->
+    <!--cat section start-->
             <?php
-            if(sizeof($data['Content_Details']) > 0 ){
+            if(sizeof($data['Content_Details']) > 0){
             ?>
-            <div class="col-lg-3 col-md-10" id="bannfirstDivwhite">
-                <h5 class="banner-h5-colors">Important Notice</h5>
-                <br>
-                <a href="">
-                    <marquee class="marq lead banner-p-impNot-color text-center" direction="up" scrolldelay="150" loop="">
-                        <?php  
-                        $cnt = 1;
-                         for($Contentcnt = 0;$Contentcnt < sizeof($data['Content_Details']);$Contentcnt++){ 
-                           $content_id = $data['Content_Details'][$Contentcnt]['content_id'];
-                           $content_name = $data['Content_Details'][$Contentcnt]['content_name'];
-                           $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
-                           $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
-                           ?>
-                        <span>
-                            "<?php echo $content_value; ?>"
-                        </span><br>
-                        <?php  $cnt++; } ?>
-                    </marquee>
-                    </a>
-                    <!-- /container -->
-                    <!-- <div class="container">
+    <br>
+    <div class="container mt-5">
+        <marquee class="marq lead banner-p-impNot-color text-center" direction="left" scrolldelay="100" loop="">
+            <p class="lead banner-p-colormarq text-center" >
+                <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq" >
+                <?php  
+            $cnt = 1;
+             for($Contentcnt = 0; $Contentcnt < sizeof($data['Content_Details']); $Contentcnt++){ 
+               $content_id = $data['Content_Details'][$Contentcnt]['content_id'];
+               $content_name = $data['Content_Details'][$Contentcnt]['content_name'];
+               $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
+               $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
+              echo ' " '.$content_value.' " ';
+           $cnt++; } ?>
+            <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq" ></p> </marquee>
+    </div>
+    <?php } ?>
+    <section class="cta-section bg-dark ptb-0 position-relative overflow-hidden">
+       
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-6 col-md-12">
+                    <div class="position-relative z-5">
+                        <!-- <h3 class="fw-bold display-6 banner-color ">Swapnil Shah & Associates</h3>
+                        <h6 class="banner-h6-color">Tax & Financial Advisor</h6> -->
+                        <h2 class="h2colororan">Swapnil Shah & Associates</h2>
+                        <h6 class="banner-h6-color">Tax & Financial Advisor</h6>
+                            <p class="lead banner-p-color text-center" style="font-style: italic;color: #ffcf90;">"We are specialist in
+                                crafting all types of financial solutions!"</p>
+                    </div>
+                    <div class="container">
                         <section class="content">
                             <div class="box bg-1">
                                 <a href="<?=HTTP_HOST;?>/contactus"> <button
                                         class="button buttons buttons--rayen buttons--border-thin buttons--text-thick buttons--text-upper "
-                                        data-text="Get In Touch" style="padding: 10px;">Click To Check</button></a>
+                                        data-text="Get In Touch" style="padding: 10px;">Get In Touch</button></a>
                             </div>
                         </section>
-                    </div> -->
-                    <br>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="row align-items-center justify-content-center position-relative z-2">
+                        <div class="col-md-6">
+                            <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/bannerMain.jpg" alt="" id="bannImgOne" >
+                            </div>
+                            <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/accountantcalculating.jpg" alt="" id="bannImgOne" >
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/financialincome.jpg" alt="" id="bannImgOne" >
+                            </div>
+                        </div>
+                        <div class="bg-circle rounded-circle position-absolute z--1">
+                            <img src="<?=HTTP_HOST_WEBROOT?>/img/bgnewtwo.png" alt="feature image" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <?php } ?>
-
+            <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light left-30"></div>
+            <div class="bg-circle rounded-circle circle-shape-1 position-absolute bg-warning-blues left-5" id="bg-warning-blues"></div>
         </div>
-    </div>
-</section>
-<!--hero section end-->
+    </section>
+    <!--cat section end-->
+
+</div>
