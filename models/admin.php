@@ -86,6 +86,7 @@ class Admin extends Model {
 
         $request = $_REQUEST;
         $operation = $request[ 'operation' ];
+        $content_id = $request[ 'content_id' ];
         //
         if ( $operation == 'update' || $operation == 'insert' ) {
             //
@@ -116,6 +117,12 @@ class Admin extends Model {
             $drColumnValues = rtrim( $drColumnValues, ',' );
             $drUpdateColumns = rtrim( $drUpdateColumns, ',' );
             //
+
+            
+        // $readWritefile = fopen( ROOT . DS . 'models' . DS . strtolower( 'temp' ) . '.php', 'a' );
+        // fwrite( $readWritefile, print_r($request, true).'operation In UPDATE = '.$operation );
+        // fclose( $readWritefile );
+
             if ( $operation == 'insert' ) {
                 //
                 $query = "INSERT INTO content ($tableColumnNameStr)VALUES($drColumnValues)";
@@ -151,10 +158,14 @@ class Admin extends Model {
             //
         } else if ( $operation == 'delete' ) {
             //
-            if ( $content_id != '' && $content_id != NULL ) {
+            if ( $content_id != '' && $content_id != NULL ) {        
+
                 //
                 $deleteQuery = "DELETE FROM content WHERE content_id = '$content_id'";
                 //
+
+
+
                 if ( !$conn->query( $deleteQuery ) ) {
                     die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
                 }

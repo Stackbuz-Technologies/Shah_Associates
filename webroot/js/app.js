@@ -724,3 +724,74 @@ function validationForContact() {
 function showSubmitDiv() {
   document.getElementById('msgDiv').style.display = 'none';
 }
+
+async function deleteAlertDismisible(httpHost, controller, actionMethod, dataParaOrForm, outputDiv, keyCode, suggetionSelectId, loadingDiv){
+  const sweetConfirmValue = await Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    type: "warning",
+    showCancelButton: !0,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+    confirmButtonClass: "btn btn-primary",
+    cancelButtonClass: "btn btn-danger ml-1",
+    buttonsStyling: !1,
+  });
+  if(sweetConfirmValue.value){
+    changeDiv(httpHost, controller, actionMethod, dataParaOrForm, outputDiv, keyCode, suggetionSelectId, loadingDiv);
+    setTimeout(function(){
+      document.getElementById(outputDiv).outerHTML="";
+      
+    }, 3000);
+  }
+  
+}
+
+function changeDiv(httpHost, controller, actionMethod, dataParaOrForm, outputDiv, keyCode, suggetionSelectId, loadingDiv) {
+  //
+  //  alert('actionMethod :- ' + actionMethod + 'dataParaOrForm :- ' + dataParaOrForm);
+  //
+  $(document).bind("ajaxStart.func", function () {
+      if (loadingDiv !== 'DoNotShow' && loadingDiv !== 'DoNotShowDoNotLoad') {
+          $("#progressbarloading").css("display", 'flex');
+          $('.progress-bar').animate({ width: "99%" }, 100);
+      }
+  });
+  //
+  $(document).bind("ajaxStop.func", function () {
+      if (loadingDiv !== 'DoNotShow') {
+      }
+      if (keyCode != '' && suggetionSelectId != '') {
+          if (keyCode == 40 || keyCode == 38) {
+              if (document.getElementById(suggetionSelectId)) {
+                  document.getElementById(suggetionSelectId).focus();
+                  document.getElementById(suggetionSelectId).options[0].selected = true;
+              }
+          }
+          $(document).unbind(".func");
+      }
+  });
+  //
+  var url = httpHost + '/' + controller + '/' + actionMethod;
+  //
+  if (dataParaOrForm != '') {
+      $.post(url, dataParaOrForm, function (data) {
+          $("#" + outputDiv).html(data);
+      });
+  } else {
+      $.post(url, function (data) {
+          $("#" + outputDiv).html(data);
+      });
+  }
+
+  setTimeout(function () {
+      $("#progressbarloading").css("display", "none");
+      $('#progressbarloading').css("width", "0%");
+  }, 1000);
+
+  //
+  if (loadingDiv != 'donotscroll' && loadingDiv != 'DoNotShowDoNotLoad') {
+      window.scrollTo({ top: 0 });
+  }
+}

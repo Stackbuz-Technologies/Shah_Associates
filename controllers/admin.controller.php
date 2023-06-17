@@ -85,6 +85,8 @@ class AdminController extends Controller {
         //
         $request = array();
         //
+        $request[ 'limit_from' ] = '0';
+        $request[ 'limit_to' ] = '5';
         $response = $this->AdminModel->get_content( $request );
         if ( $response != 'Content not Found' ) {
             $this->data[ 'Content_Details' ] = $response;
@@ -101,6 +103,35 @@ class AdminController extends Controller {
     }
 
     public function add_content() {
+             $request = array();
+             $request = $_REQUEST;
+            //
+            $response = $this->AdminModel->curd_content( $request );
+            if ( $response != 'Content not Found' ) {
+                $this->data[ 'Content_Details' ] = $response;
+            } else {
+               $this->data[ 'Content_Details' ] = array();
+            }
+            
+            Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
+    }
+    //
+    public function delete_content() {
+
+        if ( $_REQUEST[ 'content_id' ] != '' ) {
+            $request = array();
+            $request[ 'content_id' ] = $_REQUEST[ 'content_id' ];
+            $request[ 'operation' ] = 'delete';
+
+            //      echo "<pre>";
+            // print_r($request);
+            // echo "</pre>";
+            // die();
+            // //
+            $response = $this->AdminModel->curd_content( $request );
+            $this->data = $_REQUEST;
+        }
+
              $request = array();
              $request = $_REQUEST;
             //

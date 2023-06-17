@@ -430,3 +430,31 @@ background-color: antiquewhite;
 .mt-72{ 
 margin-top: 72px;
 }
+.banner-h6-colorss{
+    color: #e2e8f0;
+    font-size: 30px;
+}
+@media screen and (max-width:40em) {
+	.banner-h6-colorss {
+		color: #e2e8f0;
+		font-size: 20px;
+	}
+}
+#bordapink{
+	border: 2px dashed #dd0027;
+}
+
+.crm-pricing-table{
+	padding:5px !important;
+}
+#theads{
+	background-color: #5a73b0;
+color: white;
+text-align: center;
+}
+.theadstr{
+	background-color: #e1e8f8;
+text-align: center;
+}
+
+#mt--53px{margin-top: -53px;}

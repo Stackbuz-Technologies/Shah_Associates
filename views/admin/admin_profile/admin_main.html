@@ -14,30 +14,24 @@
             <div class="col-lg-6 col-md-10">
 
                  <div class="section-heading text-center">
-                    <section class="bg-dark-black pb-60 pt-2">
+                    <section class="bg-dark-black  p-2">
                         <div class="container">
-                            <div class="accordion faq-accordion" id="accordionExample">
-                            <div class="accordion-item border border-2">
-                                <h5 class="accordion-header" id="faq-5">
-                                    <button id="faq-accordionss" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="true">
+                        
+                                  
                                         <h4 class="mt-3">Important Content's List</h4>
-                                    </button>
-                                </h5>
-
-                                <div id="collapse-5" class="accordion-collapse collapse show" aria-labelledby="faq-5" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
                                         <?php
                                         if(sizeof($data['Content_Details']) > 0){
                                         ?>
-                                        <div class="crm-pricing-table table-responsive bg-white mt-2">
+                                        <div class="crm-pricing-table table-responsive bg-white mt-2" id="bordapink">
                                                 <div class="table-responsive">
                                                     <table class="table ">
-                                                        <thead>
+                                                        <thead id="theads">
                                                             <tr>
                                                                 <th scope="col">Sr No</th>
                                                                 <th scope="col">Content Name</th>
                                                                 <th scope="col">Content Value</th>
                                                                 <th scope="col">Content Status</th>
+                                                                <th scope="col">Status</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -49,7 +43,7 @@
                                                         $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
                                                         $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
                                                         ?>
-                                                            <tr>
+                                                            <tr id="deletedata<?=$Contentcnt;?>" class="theadstr">
                                                                 <td>
                                                                     <p class="coin-price"><?php echo $cnt; ?></p>
                                                                 </td>
@@ -61,14 +55,17 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="coin-price-change price-down">
-                                                                        <?php 
-                                                                            if($content_status == 'on'){
-                                                                                echo 'ACTIVE';
-                                                                            }else{
-                                                                                echo 'INACTIVE';
-                                                                            }
-                                                                        ?>
+                                                                        
+                                                                        <div class="form-check form-switch ">
+                                                                            <input class="form-check-input" type="checkbox" id="content_status" name="content_status" <?php  if($content_status == 'on'){   echo 'checked'; } ?>>
+                                                                        </div>
                                                                     </div>
+                                                                </td>
+                                                                <td>
+                                                                    <a class="me-3"
+                                                                        onclick="deleteAlertDismisible('<?=HTTP_HOST;?>','admin','delete_content',{content_id:'<?=$content_id;?>'},'deletedata<?=$Contentcnt;?>','','','');">
+                                                                        <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/delete.svg"
+                                                                            alt="img">
                                                                 </td>
                                                             </tr>
                                                            
@@ -80,11 +77,10 @@
                                         <?php 	}else { ?>
                                             <?=View::renderPath('page404/norecord/record');?>
                                         <?php } ?>
-                                        </div>
-                                        </div>
-                                        
-                                </div>
-                                </div>
+
+
+                          
+                               
                         </div>
                     </section>
                 </div>
@@ -133,7 +129,7 @@
         </div>
         <br>
         <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center " id="mt--53px">
             <div class="col-lg-12 col-12 mb-5" >
                 <div class="accordion faq-accordion" id="accordionExamples">
   
