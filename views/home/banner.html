@@ -1,7 +1,7 @@
-<div class="style-guide" id="bgantiquewhite">
-    
+<div class="style-guide" id="">
+
     <!-- <div class=" pt-60 p-5"> -->
-        <!-- <div class="container mt-2">
+    <!-- <div class="container mt-2">
             <marquee class="marq lead banner-p-impNot-color text-center" direction="left" scrolldelay="150" loop="">
                  <p class="lead banner-p-color text-center" style="font-style: italic;color: #ffcf90;">"We are specialist in
                 crafting all types of financial solutions!"</p>
@@ -9,14 +9,14 @@
         </div> -->
     <!-- </div> -->
     <!--cat section start-->
-            <?php
-            if(sizeof($data['Content_Details']) > 0){
-            ?>
     <br>
     <div class="container mt-5">
+        <?php
+            if(sizeof($data['Content_Details']) > 0){
+            ?>
         <marquee class="marq lead banner-p-impNot-color text-center" direction="left" scrolldelay="100" loop="">
-            <p class="lead banner-p-colormarq text-center" >
-                <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq" >
+            <p class="lead banner-p-colormarq text-center">
+                <!-- <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq"> -->
                 <?php  
             $cnt = 1;
              for($Contentcnt = 0; $Contentcnt < sizeof($data['Content_Details']); $Contentcnt++){ 
@@ -26,21 +26,34 @@
                $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
               echo ' " '.$content_value.' " ';
            $cnt++; } ?>
-            <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq" ></p> </marquee>
+                <!-- <img src="<?=HTTP_HOST_WEBROOT?>/img/shah_gif_animate.gif" alt="" id="gifmarq"> -->
+            </p>
+        </marquee>
+        <?php }else{ ?>
+        <marquee class="marq lead banner-p-impNot-color text-center" direction="left" scrolldelay="100" loop="">
+            <p class="lead banner-p-colormarq text-center">
+                <span class="ms-5 banner-p-colormarq"><i class="fa fa-star small-icon"></i></span>
+                First Test Notification
+                <span class="ms-5 banner-p-colormarq"><i class="fa fa-star small-icon"></i></span>
+                Second Test Notification
+                <span class="ms-5 banner-p-colormarq"><i class="fa fa-star small-icon"></i></span>
+                Third Test Notification
+            </p>
+        </marquee>
+        <?php } ?>
     </div>
-    <?php } ?>
     <section class="cta-section bg-dark ptb-0 position-relative overflow-hidden">
-       
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-12">
                     <div class="position-relative z-5">
                         <!-- <h3 class="fw-bold display-6 banner-color ">Swapnil Shah & Associates</h3>
                         <h6 class="banner-h6-color">Tax & Financial Advisor</h6> -->
-                        <h2 class="h2colororan text-center mt-3">Swapnil Shah & Associates</h2>
-                        <h6 class="banner-h6-colorss text-center">Tax & Financial Advisor</h6>
-                            <p class="lead banner-p-color text-center" style="font-style: italic;color: #ffcf90;">"We are specialist in
-                                crafting all types of financial solutions!"</p>
+                        <h2 class="h2colortitle text-center mt-3">Swapnil Shah & Associates</h2>
+                        <h6 class="banner-h6-colorss h2colororan text-center">Tax & Financial Advisor</h6>
+                        <h3 class="banner-p-color text-center">ISO 9001:2015 CERTIFIED</h3>
+                        <p class="lead banner-p-color h2colororan font-italic text-center p-4">"We are specialist in
+                            crafting all types of financial solutions!"</p>
                     </div>
                     <div class="container">
                         <section class="content">
@@ -56,25 +69,27 @@
                     <div class="row align-items-center justify-content-center position-relative z-2">
                         <div class="col-md-6">
                             <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
-                                <img src="<?=HTTP_HOST_WEBROOT?>/img/bannerMain.jpg" alt="" id="bannImgOne" >
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/bannerMain.jpg" alt="" id="bannImgOne">
                             </div>
                             <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
-                                <img src="<?=HTTP_HOST_WEBROOT?>/img/accountantcalculating.jpg" alt="" id="bannImgOne" >
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/accountantcalculating.jpg" alt="" id="bannImgOne">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="cta-card rounded-custom text-center shadow p-2 bg-white my-4">
-                                <img src="<?=HTTP_HOST_WEBROOT?>/img/financialincome.jpg" alt="" id="bannImgOne" >
+                                <img src="<?=HTTP_HOST_WEBROOT?>/img/financialincome.jpg" alt="" id="bannImgOne">
                             </div>
                         </div>
                         <div class="bg-circle rounded-circle position-absolute z--1">
-                            <img src="<?=HTTP_HOST_WEBROOT?>/img/bgnewtwo.png" alt="feature image" class="img-fluid rounded">
+                            <img src="<?=HTTP_HOST_WEBROOT?>/img/bgnewtwo.png" alt="feature image"
+                                class="img-fluid rounded">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="bg-circle rounded-circle circle-shape-3 position-absolute bg-dark-light left-30"></div>
-            <div class="bg-circle rounded-circle circle-shape-1 position-absolute bg-warning-blues left-5" id="bg-warning-blues"></div>
+            <div class="bg-circle rounded-circle circle-shape-1 position-absolute bg-warning-blues left-5"
+                id="bg-warning-blues"></div>
         </div>
     </section>
     <!--cat section end-->
