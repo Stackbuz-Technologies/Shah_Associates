@@ -30,10 +30,10 @@ $software_name = SOFTWARE_NAME;
 //
 //
 if ( $system_onoff == 'ON' ) {
-    $servername = 'localhost';
-    $username = 'root';
+    $servername = '';
+    $username = '';
     $password = '';
-    $database = '';
+    $database = 'shah_associates';
 } else {
     $servername = 'localhost';
     $username = 'root';
