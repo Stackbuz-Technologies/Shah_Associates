@@ -122,27 +122,29 @@ class AdminController extends Controller {
             $request = array();
             $request[ 'content_id' ] = $_REQUEST[ 'content_id' ];
             $request[ 'operation' ] = 'delete';
-
-            //      echo "<pre>";
-            // print_r($request);
-            // echo "</pre>";
-            // die();
-            // //
-            $response = $this->AdminModel->curd_content( $request );
-            $this->data = $_REQUEST;
-        }
-
-             $request = array();
-             $request = $_REQUEST;
             //
             $response = $this->AdminModel->curd_content( $request );
-            if ( $response != 'Content not Found' ) {
-                $this->data[ 'Content_Details' ] = $response;
-            } else {
-               $this->data[ 'Content_Details' ] = array();
-            }
+            $this->data = $response;
+            //
+           
             
-            Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
+           // Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
+        }
+    }
+    public function update_content() {
+        //
+        if ( $_REQUEST[ 'content_id' ] != '' ) {
+            $request = array();
+            $request[ 'content_id' ] = $_REQUEST[ 'content_id' ];
+            $request[ 'content_status' ] = $_REQUEST[ 'content_status_para' ];
+            // $request[ 'where_condition' ] = "content_status = 'contact_visitor'";
+            $request[ 'operation' ] = 'update';
+            //
+            $response = $this->AdminModel->curd_content( $request );
+            $this->data = $response;
+            
+            //Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
+        }
     }
     //
 

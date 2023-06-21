@@ -1,0 +1,37 @@
+<div class="text-center" id="firstdivprofile">
+    <h4 class="mt-3">Enter Important Content's</h4>
+
+    <form action="<?=HTTP_HOST;?>/admin/add_content" class="register-form" method="post">
+        <input type="hidden" id="operation" value="insert" name="operation">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 width50per ">
+                <label for="contentname" class="mb-1">Content Name<span
+                        class="text-danger">*</span></label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="content_name" name="content_name"
+                        placeholder="Enter Content Name  " aria-label="Content Name ">
+                </div>
+            </div>
+            <div class="col-sm-12 width50per justify-content-center">
+                <label for="contentname" class="mb-1">Content Status<span
+                        class="text-danger">*</span></label>
+                <div class="form-check form-switch ">
+                    <input class="form-check-input" type="checkbox" id="content_status" name="content_status" checked>
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="contentvalue" class="mb-1">Content Value <span class="text-danger">*</span></label>
+                <div class="input-group mb-3">
+                    <textarea class="form-control resize-none" name="content_value"
+                        id="content_value" placeholder="Enter Content Value"
+                        style="height: 120px"></textarea>
+                </div>
+            </div>  
+
+        </div>  
+        <div>
+            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </div>
+
+    </form>
+</div>

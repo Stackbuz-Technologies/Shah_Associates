@@ -1,4 +1,4 @@
-<div class="container">
+
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-10">
             <div class="section-heading text-center">
@@ -8,85 +8,9 @@
     </div>
 
     <div id="main" class="main-container">
-        <div class="row justify-content-center">
-
-
-            <div class="col-lg-6 col-md-10">
-
-                 <div class="section-heading text-center">
-                    <section class="bg-dark-black  p-2">
-                        <div class="container">
-                        
-                                  
-                                        <h4 class="mt-3">Important Content's List</h4>
-                                        <?php
-                                        if(sizeof($data['Content_Details']) > 0){
-                                        ?>
-                                        <div class="crm-pricing-table table-responsive bg-white mt-2" id="bordapink">
-                                                <div class="table-responsive">
-                                                    <table class="table ">
-                                                        <thead id="theads">
-                                                            <tr>
-                                                                <th scope="col">Sr No</th>
-                                                                <th scope="col">Content Name</th>
-                                                                <th scope="col">Content Value</th>
-                                                                <th scope="col">Content Status</th>
-                                                                <th scope="col">Status</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                     <?php  
-                                                     $cnt = 1;
-                                                      for($Contentcnt = 0;$Contentcnt < sizeof($data['Content_Details']);$Contentcnt++){ 
-                                                        $content_id = $data['Content_Details'][$Contentcnt]['content_id'];
-                                                        $content_name = $data['Content_Details'][$Contentcnt]['content_name'];
-                                                        $content_value = $data['Content_Details'][$Contentcnt]['content_value'];
-                                                        $content_status = $data['Content_Details'][$Contentcnt]['content_status'];
-                                                        ?>
-                                                            <tr id="deletedata<?=$Contentcnt;?>" class="theadstr">
-                                                                <td>
-                                                                    <p class="coin-price"><?php echo $cnt; ?></p>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="coin-price-change price-down"><?php echo $content_name; ?></div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="coin-price-change price-down"><?php echo $content_value; ?></div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="coin-price-change price-down">
-                                                                        
-                                                                        <div class="form-check form-switch ">
-                                                                            <input class="form-check-input" type="checkbox" id="content_status" name="content_status" <?php  if($content_status == 'on'){   echo 'checked'; } ?>>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a class="me-3"
-                                                                        onclick="deleteAlertDismisible('<?=HTTP_HOST;?>','admin','delete_content',{content_id:'<?=$content_id;?>'},'deletedata<?=$Contentcnt;?>','','','');">
-                                                                        <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/delete.svg"
-                                                                            alt="img">
-                                                                </td>
-                                                            </tr>
-                                                           
-                                                        <?php  $cnt++; } ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                        </div>
-                                        <?php 	}else { ?>
-                                            <?=View::renderPath('page404/norecord/record');?>
-                                        <?php } ?>
-
-
-                          
-                               
-                        </div>
-                    </section>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 col-md-10">
+        <div class="row justify-content-center" >
+            <?=View::renderPath('admin/admin_profile/imp_content_list');?>
+            <div class="col-lg-6 col-md-10" id="mainMiddleDiv">
                 <div class="text-center" id="firstdivprofile">
                     <h4 class="mt-3">Enter Important Content's</h4>
 
@@ -182,8 +106,6 @@
                                                 </td>
                                             </tr>
                                             <?php  $cnt++; } ?>
-        
-                                         
                                         </tbody>
                                     </table>
                                 </div>
@@ -199,4 +121,3 @@
     </div>
 
 
-</div>

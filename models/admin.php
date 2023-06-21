@@ -79,14 +79,23 @@ class Admin extends Model {
        } 
     }
     //
-    public function curd_content(){
+    public function curd_content( $request ){
         //
         $tableName = 'content';
         require  ROOT . DS . 'models' . DS . 'configModel.php';
 
-        $request = $_REQUEST;
         $operation = $request[ 'operation' ];
         $content_id = $request[ 'content_id' ];
+
+        // echo "API ";
+        // echo "<pre>";
+        // print_r($request);
+        // echo "</pre>";
+        // echo "<pre>";
+        // print_r($_REQUEST);
+        // echo "</pre>";
+        // die();
+
         //
         if ( $operation == 'update' || $operation == 'insert' ) {
             //
@@ -106,7 +115,9 @@ class Admin extends Model {
                         $drColumnValues = $drColumnValues . 'now(),';
                     } else if ( $tableColumnName != content_id ) {
                         $drColumnValues = $drColumnValues . "'$tableColumnValue',";
-                        $drUpdateColumns .= "$tableColumnName='$tableColumnValue',";
+                        if ( $tableColumnValue != '' ) {
+                            $drUpdateColumns .= "$tableColumnName='$tableColumnValue',";
+                        }
                     }
                     //
                 }
@@ -117,8 +128,6 @@ class Admin extends Model {
             $drColumnValues = rtrim( $drColumnValues, ',' );
             $drUpdateColumns = rtrim( $drUpdateColumns, ',' );
             //
-
-            
         // $readWritefile = fopen( ROOT . DS . 'models' . DS . strtolower( 'temp' ) . '.php', 'a' );
         // fwrite( $readWritefile, print_r($request, true).'operation In UPDATE = '.$operation );
         // fclose( $readWritefile );
@@ -143,7 +152,8 @@ class Admin extends Model {
                 if ( $content_id != '' && $content_id != NULL ) {
                     //
                     $query = "UPDATE content SET $drUpdateColumns WHERE content_id = '$content_id'";
-                    //
+                    
+
                     if ( !$conn->query( $query ) ) {
                         die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
                     }
@@ -157,15 +167,15 @@ class Admin extends Model {
             return $returnResultArray;
             //
         } else if ( $operation == 'delete' ) {
+
+    
+
             //
             if ( $content_id != '' && $content_id != NULL ) {        
 
                 //
                 $deleteQuery = "DELETE FROM content WHERE content_id = '$content_id'";
                 //
-
-
-
                 if ( !$conn->query( $deleteQuery ) ) {
                     die( 'Error ('.$fileName.' Model)(Line No - ' . __LINE__ . '): ' . mysqli_error( $conn ) );
                 }
