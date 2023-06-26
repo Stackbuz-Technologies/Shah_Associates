@@ -63,9 +63,7 @@
                               Check Your Visitor List
                             </button>
                         </h5>
-                        <?php
-                        if(sizeof($data['Visitor_Details']) > 0){
-                        ?>
+                        
                         <div id="collapse-6" class="accordion-collapse collapse show" aria-labelledby="faq-6" data-bs-parent="#accordionExamples">
                             <div class="accordion-body">
                                 <div class="table-responsive">
@@ -76,10 +74,13 @@
                                                 <th scope="col">Visitor Name</th>
                                                 <th scope="col">Visitor Mobile</th>
                                                 <th scope="col">Visitor Email</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            <?php
+                                            if(sizeof($data['Visitor_Details']) > 0){
+                                            ?>
                                             <?php  
                                          $cnt = 1;
                                           for($VisitorCnt = 0;$VisitorCnt < sizeof($data['Visitor_Details']);$VisitorCnt++){ 
@@ -90,10 +91,10 @@
                                             $visitor_email = $data['Visitor_Details'][$VisitorCnt]['visitor_email'];
                                             ?>
 
-                                            <tr>
+                                            <tr id="deletedataVisitor<?=$VisitorCnt;?>">
                                                
-                                                <td>
-                                                    <p class="coin-price">1</p>
+                                                <td id="deletedataVisitor<?=$VisitorCnt;?>">
+                                                    <p class="coin-price"><?=$cnt?></p>
                                                 </td>
                                                 <td>
                                                     <div class="coin-price-change price-down"><?php echo $visitor_fname.' '.$visitor_lname;  ?></div>
@@ -104,16 +105,23 @@
                                                 <td>
                                                     <div class="coin-price-change price-down"><?php echo $visitor_email;  ?></div>
                                                 </td>
+                                                <td>
+                                                    <a class="me-3"
+                                                        onclick="deleteAlertDismisible('<?=HTTP_HOST;?>','admin','delete_visitor',{visitor_id:'<?=$visitor_id;?>'},'deletedataVisitor<?=$VisitorCnt;?>','','','DoNotShowDoNotLoad');">
+                                                        <img src="<?=HTTP_HOST_WEBROOT?>/<?=Config::get('default_theme');?>/img/icons/delete.svg"
+                                                            alt="img">
+                                                </td>
                                             </tr>
                                             <?php  $cnt++; } ?>
+                                            <?php
+                             }
+                        ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                             }
-                        ?>
+                        
                     </div>
                 </div>
             </div>

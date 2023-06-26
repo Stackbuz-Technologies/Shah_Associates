@@ -81,25 +81,32 @@ class AdminController extends Controller {
     //
     //
     public function admin_profile() {
-        if( Session::get( 'admin_email' ) == 'swapnilshahasso@gmail.com'){
-        //
-        $request = array();
-        //
-        $request[ 'limit_from' ] = '0';
-        $request[ 'limit_to' ] = '5';
-        $response = $this->AdminModel->get_content( $request );
-        if ( $response != 'Content not Found' ) {
-            $this->data[ 'Content_Details' ] = $response;
-        } else {
-           $this->data[ 'Content_Details' ] = array();
+            if( Session::get( 'admin_email' ) == 'swapnilshahasso@gmail.com'){
+            //
+            $request = array();
+            //
+            $request[ 'limit_from' ] = '0';
+            $request[ 'limit_to' ] = '5';
+            $response = $this->AdminModel->get_content( $request );
+            if ( $response != 'Content not Found' ) {
+                $this->data[ 'Content_Details' ] = $response;
+            } else {
+            $this->data[ 'Content_Details' ] = array();
+            }
+            //
+            $request[ 'where_condition' ] = "visitor_type = 'contact_visitor'";
+            $response = $this->ContactModel->get_visitors( $request );
+            //
+            if ( $response != 'Visitor not Found' ) {
+                $this->data[ 'Visitor_Details' ] = $response;
+            } else {
+            $this->data[ 'Visitor_Details' ] = array();
+            }
+
+
+        } else{
+            Router::redirect( HTTP_HOST.'/home/index' );
         }
-        //
-        $request[ 'where_condition' ] = "visitor_type = 'contact_visitor'";
-        $response = $this->ContactModel->get_visitors( $request );
-        $this->data[ 'Visitor_Details' ] = $response;
-    } else{
-        Router::redirect( HTTP_HOST.'/home/index' );
-    }
     }
 
     public function add_content() {
@@ -126,7 +133,25 @@ class AdminController extends Controller {
             $response = $this->AdminModel->curd_content( $request );
             $this->data = $response;
             //
-           
+           // Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
+        }
+    }
+    //
+    public function delete_visitor() {
+
+        if ( $_REQUEST[ 'visitor_id' ] != '' ) {
+            $request = array();
+            $request[ 'visitor_id' ] = $_REQUEST[ 'visitor_id' ];
+            $request[ 'operation' ] = 'delete';
+            //
+            $response = $this->ContactModel->visitor_crud( $request );
+            $this->data = $response;
+            //
+            echo "<pre>";
+            print_r($response);
+            echo "</pre>";
+            die();
+            //
             
            // Router::redirect( HTTP_HOST.'/admin/admin_profile/index' );
         }

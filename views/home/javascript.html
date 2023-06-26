@@ -1,23 +1,28 @@
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/jquery-3.6.0.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/bootstrap.bundle.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/swiper-bundle.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/jquery.magnific-popup.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/parallax.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/aos.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/massonry.min.js?v=<?=Config::get('version');?>"></script>
-<script src="<?=HTTP_HOST_WEBROOT?>/js/app.js?v=<?=Config::get('version');?>"></script>
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/jquery-3.6.0.min.js?v=<?=Config::get('version');?>"></script>-->
+<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/jquery-3.6.0.min.js"></script>
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/bootstrap.bundle.min.js?v=<?=Config::get('version');?>"></script>-->
+<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/bootstrap.bundle.min.js"></script>
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/swiper-bundle.min.js?v=<?=Config::get('version');?>"></script>-->
+<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/swiper-bundle.min.js"></script>
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/jquery.magnific-popup.min.js?v=<?=Config::get('version');?>"></script>-->
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/parallax.min.js?v=<?=Config::get('version');?>"></script>-->
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/aos.js?v=<?=Config::get('version');?>"></script>-->
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/vendors/massonry.min.js?v=<?=Config::get('version');?>"></script>-->
+<!--<script src="<?=HTTP_HOST_WEBROOT?>/js/app.js?v=<?=Config::get('version');?>"></script>-->
+<script src="<?=HTTP_HOST_WEBROOT?>/js/app.js"></script>
 <!-- Slimscroll JS -->
-<script src="<?=HTTP_HOST_WEBROOT?>/js/jquery.slimscroll.min.js"></script>
+<!-- <script src="<?=HTTP_HOST_WEBROOT?>/js/jquery.slimscroll.min.js"></script> -->
 <!-- select2 JS -->
 <script src="<?=HTTP_HOST_WEBROOT?>/plugins/sweetalert/sweetalert2.all.min.js"></script>
 <script src="<?=HTTP_HOST_WEBROOT?>/plugins/sweetalert/sweetalerts.min.js"></script>
-<?php
-$request_uri = explode( '/', filter_var( trim( $_SERVER[ 'REQUEST_URI' ], '/' ), FILTER_SANITIZE_URL ) );
+
+  <?php
+   $request_uri = explode( '/', filter_var( trim( $_SERVER[ 'REQUEST_URI' ], '/' ), FILTER_SANITIZE_URL ) );
         if ( PROJECT_DIR != '' ) {
           unset( $request_uri[ 0 ] );
           $request_uri = array_values( $request_uri );
         }
-?>
+  ?>
 <script>
     
     var url_param1 = "<?php echo $request_uri[0];?>";

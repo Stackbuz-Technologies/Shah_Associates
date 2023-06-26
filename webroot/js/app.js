@@ -617,56 +617,28 @@ var THEMETAGS = THEMETAGS || {};
       });
     });
   }
-  THEMETAGS.initialize = {
-    init: function () {
-      THEMETAGS.initialize.general();
-    },
-    general: function () {
-      // Mouse Move Parallax Element
-      var $scene = $(".parallax-element").parallax({
-        scalarX: 100,
-        scalarY: 100
-      });
-    }
-  };
-  THEMETAGS.documentOnReady = {
-    init: function () {
-      THEMETAGS.initialize.init();
-    }
-  };
-  $(document).ready(THEMETAGS.documentOnReady.init);
-  $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip();
-  });
+  // THEMETAGS.initialize = {
+  //   init: function () {
+  //     THEMETAGS.initialize.general();
+  //   },
+  //   general: function () {
+  //     // Mouse Move Parallax Element
+  //     var $scene = $(".parallax-element").parallax({
+  //       scalarX: 100,
+  //       scalarY: 100
+  //     });
+  //   }
+  // };
+  // THEMETAGS.documentOnReady = {
+  //   init: function () {
+  //     THEMETAGS.initialize.init();
+  //   }
+  // };
+  // $(document).ready(THEMETAGS.documentOnReady.init);
+  // $(function () {
+  //   $('[data-bs-toggle="tooltip"]').tooltip();
+  // });
 
-  //animated js
-  AOS.init({
-    easing: "ease-in-out",
-    // default easing for AOS animations
-    once: true,
-    // whether animation should happen only once - while scrolling down
-    duration: 500 // values from 0 to 3000, with step 50ms
-  });
-  //magnific popup js
-  $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
-    disableOn: 700,
-    type: "iframe",
-    mainClass: "mfp-fade",
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false
-  });
-  $(".popup-with-form").magnificPopup({
-    type: "inline",
-    preloader: false,
-    focus: "#name"
-  });
-  $(window).on("load", function () {
-    $('.masonry_grid').masonry({
-      itemSelector: '.grid_item',
-      columnWidth: 1
-    });
-  });
 })();
 //validation for contact
 function validationForContact() {
