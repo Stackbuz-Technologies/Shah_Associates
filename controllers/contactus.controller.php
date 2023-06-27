@@ -54,8 +54,10 @@ class ContactusController extends Controller {
             //
             if ( $response[ 'visitor_id' ] != '' ) {
                 Session::set( 'visitor_response', 'YES' );
+                Session::set( 'login_time_stamp', time() );
             } else {
                 Session::set( 'visitor_response', 'NO' );
+                Session::set( 'login_time_stamp', time() );
             }
             //
             Router::redirect( HTTP_HOST.'/contactus' );

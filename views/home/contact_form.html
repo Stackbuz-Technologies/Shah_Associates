@@ -1,5 +1,6 @@
 <?php
 $msgDisplayStatus = Session::get( 'visitor_response');
+$timestampsession = Session::get( 'login_time_stamp');
 ?>
 <section class="contact-us-form pb-40" id="contact">
     <div class="container">
@@ -94,7 +95,13 @@ $msgDisplayStatus = Session::get( 'visitor_response');
                     </div>
                     <?php } ?>
                 </form>
-                <?php unset($_SESSION['visitor_response']); ?>
+                <?php 
+                if(isset($msgDisplayStatus)){
+                    if( time()-$timestampsession > 1) {
+                        unset($_SESSION['visitor_response']);
+                    }
+                }
+                ?>
             </div>
             <div class="col-lg-5 col-md-10">
                 <div class="contact-us-img">

@@ -550,3 +550,7 @@ margin-bottom: 29px;
 #font25{
 	font-size: 25px;
 }
+
+.flotleft{
+	float: left;
+}
