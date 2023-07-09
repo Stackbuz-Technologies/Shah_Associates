@@ -66,7 +66,7 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     define( 'GB_PAYMENT_PANEL_MERCHANT_ID', '' );
     define( 'GB_PAYMENT_PANEL_WORKING_KEY', '' );
     define( 'GB_PAYMENT_PANEL_ACCESS_CODE', '' );
-    define( 'PROJECT_DIR', '' );
+    define( 'PROJECT_DIR', 'swapnilshahassociates.in' );
     define( 'SOFTWARE_NAME', '' );
     define( 'HTTP', 'http://' );
     //
