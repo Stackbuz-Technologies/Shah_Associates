@@ -3,7 +3,7 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [PT,L]
-    RewriteCond %{HTTP_HOST} stackbuz\.com [NC]
+    RewriteCond %{HTTP_HOST}swapnilshahassociates\.in [NC]
     RewriteCond %{SERVER_PORT} 80
-    RewriteRule ^(.*)$ https://stackbuz.com/$1 [R,L]
+    RewriteRule ^(.*)$ http://swapnilshahassociates.in/$1 [R,L]
 </IfModule>
