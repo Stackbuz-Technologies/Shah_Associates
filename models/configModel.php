@@ -34,10 +34,10 @@ $software_name = SOFTWARE_NAME;
 //
 //
 if ( $system_onoff == 'ON' ) {
-    $servername = '65.2.186.41';
-    $username = 'root';
-    $password = 'Shah@Associates';
-    $database = 'shah_associates';
+    $servername = '';
+    $username = '';
+    $password = '';
+    $database = '';
 } else {
     $servername = 'localhost';
     $username = 'root';
@@ -47,7 +47,7 @@ if ( $system_onoff == 'ON' ) {
 //
 // CREATING CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
-$conn = new mysqli( $servername, $username, $password );
+$conn = new mysqli( $servername, $username, $password);
 //
 // CHECK CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
@@ -59,7 +59,7 @@ if ( $conn->connect_error ) {
 // CREATING DATABASE CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
 
-// if ( $system_onoff == 'OFF' ) {
+if ( $system_onoff == 'OFF' ) {
     //
     $queryCreateDatabase = "CREATE DATABASE IF NOT EXISTS $database";
     //
@@ -73,7 +73,7 @@ if ( $conn->connect_error ) {
         // fclose( $readWritefile );
     }
     //
-// }
+}
 //
 $queryUseDatabase = "USE $database";
 if ( !$conn->query( $queryUseDatabase ) ) {
