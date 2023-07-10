@@ -47,7 +47,7 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     define( 'SOFTWARE_NAME', 'GST & TAX' );
     define( 'HTTP', 'http://' );
     //
-} else if ( $_SERVER[ 'HTTP_HOST' ] == 'swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == 'www.swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == '65.2.186.41') {
+} else if ( $_SERVER[ 'HTTP_HOST' ] == 'swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == 'www.swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == '13.232.187.88') {
     //
     define( 'GB_BUILD_TYPE', 'PROD' );
     define( 'GB_HTTP', 'http://' );
