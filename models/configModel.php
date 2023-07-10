@@ -24,15 +24,19 @@
 ?>
 <?php
 //
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+//
 $domain_name = GB_DOMAIN_NAME;
 $system_onoff = GB_SYSTEM_ONOFF;
 $software_name = SOFTWARE_NAME;
 //
 //
 if ( $system_onoff == 'ON' ) {
-    $servername = '';
-    $username = '';
-    $password = '';
+    $servername = '65.2.186.41';
+    $username = 'root';
+    $password = 'Shah@Associates';
     $database = 'shah_associates';
 } else {
     $servername = 'localhost';
@@ -55,7 +59,7 @@ if ( $conn->connect_error ) {
 // CREATING DATABASE CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
 
-if ( $system_onoff == 'OFF' ) {
+// if ( $system_onoff == 'OFF' ) {
     //
     $queryCreateDatabase = "CREATE DATABASE IF NOT EXISTS $database";
     //
@@ -69,7 +73,7 @@ if ( $system_onoff == 'OFF' ) {
         // fclose( $readWritefile );
     }
     //
-}
+// }
 //
 $queryUseDatabase = "USE $database";
 if ( !$conn->query( $queryUseDatabase ) ) {
