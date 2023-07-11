@@ -51,7 +51,7 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     //
     define( 'GB_BUILD_TYPE', 'PROD' );
     define( 'GB_HTTP', 'http://' );
-    define( 'GB_HTTPS', 'http://' );
+    define( 'GB_HTTPS', 'https://' );
     define( 'GB_WEBSITE', 'swapnilshahassociates.in' );
     define( 'GB_DOMAIN_NAME', 'swapnilshahassociates.in' );
     define( 'GB_API_KEY', '1de8e66824422b49c970e947967ecf48' );
@@ -66,9 +66,9 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     define( 'GB_PAYMENT_PANEL_MERCHANT_ID', '' );
     define( 'GB_PAYMENT_PANEL_WORKING_KEY', '' );
     define( 'GB_PAYMENT_PANEL_ACCESS_CODE', '' );
-    define( 'PROJECT_DIR', 'swapnilshahassociates.in' );
+    define( 'PROJECT_DIR', '' );
     define( 'SOFTWARE_NAME', '' );
-    define( 'HTTP', 'http://' );
+    define( 'HTTP', 'https://' );
     //
 }
 ?>
