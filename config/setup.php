@@ -24,7 +24,7 @@
 */
 ?>
 <?php
-if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
+if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' || $_SERVER[ 'HTTP_HOST' ] == 'localhost') {
     //
     define( 'GB_BUILD_TYPE', 'DEV' );
     define( 'GB_HTTP', 'http://' );

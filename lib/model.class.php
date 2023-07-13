@@ -1,1 +1,86 @@
-<?php /* This files copyright to stackbuz technologies */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63%6f%5f%74%6e%64');$OOO0000O0=$OOO000000{4}.$OOO000000{9}.$OOO000000{3}.$OOO000000{5};$OOO0000O0.=$OOO000000{2}.$OOO000000{10}.$OOO000000{13}.$OOO000000{16};$OOO0000O0.=$OOO0000O0{3}.$OOO000000{11}.$OOO000000{12}.$OOO0000O0{7}.$OOO000000{5};$OOO000O00=$OOO000000{0}.$OOO000000{12}.$OOO000000{7}.$OOO000000{5}.$OOO000000{15};$O0O000O00=$OOO000000{0}.$OOO000000{1}.$OOO000000{5}.$OOO000000{14};$O0O000O0O=$O0O000O00.$OOO000000{11};$O0O000O00=$O0O000O00.$OOO000000{3};$O0O00OO00=$OOO000000{0}.$OOO000000{8}.$OOO000000{5}.$OOO000000{9}.$OOO000000{16};$OOO00000O=$OOO000000{3}.$OOO000000{14}.$OOO000000{8}.$OOO000000{14}.$OOO000000{8};$OOO0O0O00=__FILE__;$OO00O0000=0xb80;eval($OOO0000O0('JE8wMDBPME8wMD0kT09PMDAwTzAwKCRPT08wTzBPMDAsJ3JiJyk7JE8wTzAwT08wMCgkTzAwME8wTzAwLDB4NGI3KTskT08wME8wME8wPSRPT08wMDAwTzAoJE9PTzAwMDAwTygkTzBPMDBPTzAwKCRPMDAwTzBPMDAsMHgxN2MpLCdFbnRlcnlvdXdraFJIWUtOV09VVEFhQmJDY0RkRmZHZ0lpSmpMbE1tUHBRcVNzVnZYeFp6MDEyMzQ1Njc4OSsvPScsJ0FCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXowMTIzNDU2Nzg5Ky8nKSk7ZXZhbCgkT08wME8wME8wKTs='));return;?>r`ZPn@xv}RIrv^}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\mOTrD@fPkD
+<?php
+//
+
+class Model {
+    //
+    public $pass_phrase = '0lu5nj57id9t0w8f90t98y224jns9rk05l64o90ed09s8g9c9d0g83523j31k2u5l6o3p5n5b6v8x7';
+    //
+    public static function encrypt( $encrypt, $key ) {
+        //
+        $master_key = hash( 'sha256', $pass_phrase );
+        define( 'ENCRYPTION_KEY', $master_key );
+        //
+        if ( $_ENV[ 'S2G_SERVER_SOFTWARE' ] == 'Server2Go 1.8.2' ) {
+            //
+            $encrypt = serialize( $encrypt );
+            $iv = mcrypt_create_iv( mcrypt_get_iv_size( MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC ), MCRYPT_DEV_URANDOM );
+            $key = pack( 'H*', ENCRYPTION_KEY );
+            $mac = hash_hmac( 'sha256', $encrypt, substr( bin2hex( $key ), -32 ) );
+            $passcrypt = mcrypt_encrypt( MCRYPT_RIJNDAEL_256, $key, $encrypt . $mac, MCRYPT_MODE_CBC, $iv );
+            $encoded = base64_encode( $passcrypt ) . '|' . base64_encode( $iv );
+            //
+            return $encoded;
+            //
+        } else {
+            //
+            $cipher = 'aes-128-cbc';
+            $ivlen = openssl_cipher_iv_length( $cipher );
+            $iv = substr( md5( ENCRYPTION_KEY ), 0, $ivlen );
+            $encrypt = serialize( $encrypt );
+            $ciphertext = openssl_encrypt( $encrypt, $cipher, ENCRYPTION_KEY, $options = 0, $iv );
+            $encoded = base64_encode( $ciphertext );
+            //
+            return $encoded;
+            //
+        }
+        //
+        return $master_key;
+        //
+    }
+    //
+    public static function decrypt( $decrypt, $key ) {
+        //
+        if ( $_ENV[ 'S2G_SERVER_SOFTWARE' ] == 'Server2Go 1.8.2' ) {
+            //
+            $master_key = hash( 'sha256', $pass_phrase );
+            define( 'ENCRYPTION_KEY', $master_key );
+            //
+            $decrypt = explode( '|', $decrypt );
+            $decoded = base64_decode( $decrypt[ 0 ] );
+            $iv = base64_decode( $decrypt[ 1 ] );
+            //
+            if ( strlen( $iv ) !== mcrypt_get_iv_size( MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC ) ) {
+                return 'String Length Issue!';
+            }
+            //
+            $key = pack( 'H*', ENCRYPTION_KEY );
+            $decrypted = trim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, $key, $decoded, MCRYPT_MODE_CBC, $iv ) );
+            $mac = substr( $decrypted, -64 );
+            $decrypted = substr( $decrypted, 0, -64 );
+            $calcmac = hash_hmac( 'sha256', $decrypted, substr( bin2hex( $key ), -32 ) );
+            //
+            if ( $calcmac !== $mac ) {
+                return 'Mac Mismatched!';
+            }
+            //
+            $decrypted = unserialize( $decrypted );
+            //
+            return $decrypted;
+            //
+        } else {
+            //
+            $cipher = 'aes-128-cbc';
+            $ivlen = openssl_cipher_iv_length( $cipher );
+            $iv = substr( md5( ENCRYPTION_KEY ), 0, $ivlen );
+            $decodetext = base64_decode( $decrypt );
+            $originaltext = openssl_decrypt( $decodetext, $cipher, ENCRYPTION_KEY, $options = 0, $iv );
+            $originaltext = unserialize( $originaltext );
+            //
+            return $originaltext;
+            //
+        }
+        //
+    }
+    //
+}
+?>

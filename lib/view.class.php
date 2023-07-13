@@ -1,1 +1,63 @@
-<?php /* This files copyright to stackbuz technologies */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63%6f%5f%74%6e%64');$OOO0000O0=$OOO000000{4}.$OOO000000{9}.$OOO000000{3}.$OOO000000{5};$OOO0000O0.=$OOO000000{2}.$OOO000000{10}.$OOO000000{13}.$OOO000000{16};$OOO0000O0.=$OOO0000O0{3}.$OOO000000{11}.$OOO000000{12}.$OOO0000O0{7}.$OOO000000{5};$OOO000O00=$OOO000000{0}.$OOO000000{12}.$OOO000000{7}.$OOO000000{5}.$OOO000000{15};$O0O000O00=$OOO000000{0}.$OOO000000{1}.$OOO000000{5}.$OOO000000{14};$O0O000O0O=$O0O000O00.$OOO000000{11};$O0O000O00=$O0O000O00.$OOO000000{3};$O0O00OO00=$OOO000000{0}.$OOO000000{8}.$OOO000000{5}.$OOO000000{9}.$OOO000000{16};$OOO00000O=$OOO000000{3}.$OOO000000{14}.$OOO000000{8}.$OOO000000{14}.$OOO000000{8};$OOO0O0O00=__FILE__;$OO00O0000=0x6c8;eval($OOO0000O0('JE8wMDBPME8wMD0kT09PMDAwTzAwKCRPT08wTzBPMDAsJ3JiJyk7JE8wTzAwT08wMCgkTzAwME8wTzAwLDB4NGFlKTskT08wME8wME8wPSRPT08wMDAwTzAoJE9PTzAwMDAwTygkTzBPMDBPTzAwKCRPMDAwTzBPMDAsMHgxN2MpLCdFbnRlcnlvdXdraFJIWUtOV09VVEFhQmJDY0RkRmZHZ0lpSmpMbE1tUHBRcVNzVnZYeFp6MDEyMzQ1Njc4OSsvPScsJ0FCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXowMTIzNDU2Nzg5Ky8nKSk7ZXZhbCgkT08wME8wME8wKTs='));return;?>f]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BWhylSK
+<?php
+require_once 'config.class.php';
+require_once '../config/config.php';
+
+class View {
+
+    public $data = array();
+
+    public function renderPage( $url, $data ) {
+        //
+        $this->data = $data;
+        //
+        $default_template = Config::get( 'default_theme' );
+        $error_controller =  Config::get( 'default_error_controller' );
+         // checking default theme and if url have index method
+        if ( $default_template != '' ) {
+            $filePath = ROOT.DS.'views'.DS.$default_template.DS.$url.'.html';
+        } else {
+            $filePath = ROOT.DS.'views'.DS.$url.'.html';
+        }
+        // echo "filepayh==".$filePath."<br>";
+        // die;
+        //
+        if ( file_exists( $filePath ) ) {
+            include_once $filePath;
+            // echo 'babab';
+        } else {
+             // checking default theme and if url have index method if not setting index by default
+            if ( $default_template != '' ) {
+                $filePath = ROOT.DS.'views'.DS.$default_template.DS.$url.DS.'index.html';
+                $errorfile = ROOT.DS.'views'.DS.$default_template.DS.$error_controller.DS.'index.html';
+            } else {
+                $filePath = ROOT.DS.'views'.DS.$url.DS.'index.html';
+                $errorfile = ROOT.DS.'views'.DS.$error_controller.DS.'index.html';
+            }
+            if ( file_exists( $filePath ) ) {
+                include_once $filePath;
+            } else {
+                include_once $errorfile;
+            }
+        }
+        // echo $filePath;
+        // die;
+        //
+    }
+
+    public function renderPath( $renderPath) {
+        $data = $this->data;
+        $default_template = Config::get( 'default_theme' );
+        if ( $default_template != '' ) {
+            $filePath = ROOT.DS.'views'.DS.$default_template.DS.$renderPath.'.html';
+        } else {
+            $filePath = ROOT.DS.'views'.DS.$renderPath.'.html';
+        }
+        if ( file_exists( $filePath ) ) {
+            include $filePath;
+        } else {
+            return 'File Not Found';
+        }
+
+    }
+}
+?>

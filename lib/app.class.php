@@ -1,1 +1,90 @@
-<?php /* This files copyright to stackbuz technologies */$OOO000000=urldecode('%66%67%36%73%62%65%68%70%72%61%34%63%6f%5f%74%6e%64');$OOO0000O0=$OOO000000{4}.$OOO000000{9}.$OOO000000{3}.$OOO000000{5};$OOO0000O0.=$OOO000000{2}.$OOO000000{10}.$OOO000000{13}.$OOO000000{16};$OOO0000O0.=$OOO0000O0{3}.$OOO000000{11}.$OOO000000{12}.$OOO0000O0{7}.$OOO000000{5};$OOO000O00=$OOO000000{0}.$OOO000000{12}.$OOO000000{7}.$OOO000000{5}.$OOO000000{15};$O0O000O00=$OOO000000{0}.$OOO000000{1}.$OOO000000{5}.$OOO000000{14};$O0O000O0O=$O0O000O00.$OOO000000{11};$O0O000O00=$O0O000O00.$OOO000000{3};$O0O00OO00=$OOO000000{0}.$OOO000000{8}.$OOO000000{5}.$OOO000000{9}.$OOO000000{16};$OOO00000O=$OOO000000{3}.$OOO000000{14}.$OOO000000{8}.$OOO000000{14}.$OOO000000{8};$OOO0O0O00=__FILE__;$OO00O0000=0x6fc;eval($OOO0000O0('JE8wMDBPME8wMD0kT09PMDAwTzAwKCRPT08wTzBPMDAsJ3JiJyk7JE8wTzAwT08wMCgkTzAwME8wTzAwLDB4NGE5KTskT08wME8wME8wPSRPT08wMDAwTzAoJE9PTzAwMDAwTygkTzBPMDBPTzAwKCRPMDAwTzBPMDAsMHgxN2MpLCdFbnRlcnlvdXdraFJIWUtOV09VVEFhQmJDY0RkRmZHZ0lpSmpMbE1tUHBRcVNzVnZYeFp6MDEyMzQ1Njc4OSsvPScsJ0FCQ0RFRkdISUpLTE1OT1BRUlNUVVZXWFlaYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXowMTIzNDU2Nzg5Ky8nKSk7ZXZhbCgkT08wME8wME8wKTs='));return;?>~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alVnRPIq
+<?php
+//
+require_once 'config.class.php';
+require_once '../config/config.php';
+require_once 'view.class.php';
+//
+
+class App {
+    //
+
+    public static function run( $url ) {
+        //
+        // creating view class object to call view
+        //
+        $param = array();
+        //
+        $urlArray = explode( '/', $url );
+        //
+        if ( file_exists( ROOT.DS.'controllers/'.$urlArray[ 0 ].'.controller.php' ) ) {
+            $controller = $urlArray[ 0 ];
+            unset( $urlArray[ 0 ] );
+            $viewfolder = $controller;
+        } else {
+            $controller = Config::get( 'default_controller' );
+            $viewfolder = 'error404';
+        }
+        //
+        $controllerFile = ROOT.DS.'controllers/'.$controller.'.controller.php';
+        //
+        // calling controller file
+        //
+        require_once $controllerFile;
+        //
+        // making controller class and set default method parameter
+        //
+        $controller = $controller.'Controller';
+        $default_method = Config::get( 'default_action' );
+        //
+        // reseting the parametr array
+        $param = $urlArray;
+        unset( $param[ 1 ] );
+        unset( $param[ 2 ] );
+       
+        if ( isset( $param[ 3 ] ) ) {
+            $param = array_values( $param );
+        }
+        //
+        // making controller class object
+        //
+        $controller_obj = new $controller( $param );
+        //
+        // checking method exist or not if not calling default method
+        //
+        // print_r($urlArray);
+        if ( isset( $urlArray[ 1 ] ) ) {
+            if ( method_exists( $controller_obj, $urlArray[ 1 ] ) ) {
+                $method_name = $urlArray[ 1 ];
+                unset( $urlArray[ 1 ] );
+                // generating new view url to get file and params
+                $viewUrl = $viewfolder.'/'.$method_name;
+                $filepathurl = $viewUrl;
+                //
+                $controller_obj->$method_name();
+                //
+            }else{
+                //setting error if method not exist
+                //
+                $viewUrl = $viewfolder.'/error404';
+            }
+        } else {
+            $controller_obj-> $default_method();
+            $viewUrl = $viewfolder;
+        }
+        if (isset( $urlArray[ 2 ] )) {
+            unset( $param[ 2 ] );  // third parameter is file 
+            $viewUrl = $filepathurl.'/'.$urlArray[ 2 ];
+        } 
+        
+        // echo '$viewUrl=='.$viewUrl;
+        //
+        // calling view of that viewUrl and passing controller data
+        //
+        $view_obj = new View();
+        $view_obj->renderPage( $viewUrl, $controller_obj->data );
+
+    }
+    //
+}
+//
+?>
