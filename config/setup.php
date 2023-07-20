@@ -24,7 +24,7 @@
 */
 ?>
 <?php
-if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
+if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' || $_SERVER[ 'HTTP_HOST' ] == 'localhost') {
     //
     define( 'GB_BUILD_TYPE', 'DEV' );
     define( 'GB_HTTP', 'http://' );
@@ -47,13 +47,13 @@ if ( $_SERVER[ 'HTTP_HOST' ] == '127.0.0.1:8080' ) {
     define( 'SOFTWARE_NAME', 'GST & TAX' );
     define( 'HTTP', 'http://' );
     //
-} else if ( $_REQUEST[ 'ecom_domain_name' ] == 'swapnilshahasso.stackbuz.com' || $_REQUEST[ 'ecom_domain_name' ] == 'www.swapnilshahasso.stackbuz.com' || $_SERVER[ 'HTTP_HOST' ] == 'swapnilshahasso.stackbuz.com' || $_SERVER[ 'HTTP_HOST' ] == 'www.swapnilshahasso.stackbuz.com' ) {
+} else if ( $_SERVER[ 'HTTP_HOST' ] == 'swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == 'www.swapnilshahassociates.in' || $_SERVER[ 'HTTP_HOST' ] == '13.232.187.88') {
     //
     define( 'GB_BUILD_TYPE', 'PROD' );
     define( 'GB_HTTP', 'http://' );
     define( 'GB_HTTPS', 'https://' );
-    define( 'GB_WEBSITE', 'swapnilshahasso.stackbuz.com' );
-    define( 'GB_DOMAIN_NAME', 'swapnilshahasso.stackbuz.comm' );
+    define( 'GB_WEBSITE', 'swapnilshahassociates.in' );
+    define( 'GB_DOMAIN_NAME', 'swapnilshahassociates.in' );
     define( 'GB_API_KEY', '1de8e66824422b49c970e947967ecf48' );
     //
     define( 'GB_API_HOST', '' );

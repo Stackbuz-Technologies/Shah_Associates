@@ -24,6 +24,10 @@
 ?>
 <?php
 //
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+//
 $domain_name = GB_DOMAIN_NAME;
 $system_onoff = GB_SYSTEM_ONOFF;
 $software_name = SOFTWARE_NAME;
@@ -33,7 +37,7 @@ if ( $system_onoff == 'ON' ) {
     $servername = '';
     $username = '';
     $password = '';
-    $database = 'shah_associates';
+    $database = '';
 } else {
     $servername = 'localhost';
     $username = 'root';
@@ -43,7 +47,7 @@ if ( $system_onoff == 'ON' ) {
 //
 // CREATING CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
-$conn = new mysqli( $servername, $username, $password );
+$conn = new mysqli( $servername, $username, $password);
 //
 // CHECK CONNECTION @AUTHOR:YUVRAJ-27JAN2023
 //
