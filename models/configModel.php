@@ -34,10 +34,10 @@ $software_name = SOFTWARE_NAME;
 //
 //
 if ( $system_onoff == 'ON' ) {
-    $servername = '';
-    $username = '';
-    $password = '';
-    $database = '';
+    $servername = 'localhost';
+    $username = 'root';
+    $password = 'Accurate@CA';
+    $database = 'shah_associates';
 } else {
     $servername = 'localhost';
     $username = 'root';
